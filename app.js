@@ -10,7 +10,7 @@ const CONFIG = {
   },
   explorer: "https://solscan.io/tx/",
   account: "https://solscan.io/account/",
-  keeper: "",   // keeper base URL, e.g. https://flog-keeper.up.railway.app (serves /log and /health)
+  keeper: "https://keeper-production-f49f8214.up.railway.app",   // keeper base URL (serves /log and /health)
 };
 // the flog log comes from the keeper's /log; log.json is the fallback (see README.md)
 

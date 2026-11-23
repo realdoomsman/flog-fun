@@ -16,7 +16,7 @@
 <link rel="icon" href="img/favicon.png">
 <link rel="preload" href="fonts/BricolageGrotesque.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="fonts/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="style.css?v=7">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -46,7 +46,7 @@
   <div class="hero-copy">
     <p class="kicker">TAPE 00 · FOUND IN A FOREST</p>
     <h1 class="wordmark">FLOG</h1>
-    <p class="tag">half frog. half log. <b>every fee buys $FLOG and locks it forever.</b></p>
+    <p class="tag">half frog. half log. <b>every fee buys $FLOG and locks it for 70 years.</b></p>
     <div class="ca" id="ca">
       <span class="ca-label">CA</span>
       <code id="ca-text">not cut yet</code>
@@ -62,8 +62,8 @@
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track">
-  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCKED FOREVER</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
-  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCKED FOREVER</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
+  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCKED 70 YEARS</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
+  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCKED 70 YEARS</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
 </div></div>
 
 <!-- LORE -->
@@ -122,7 +122,7 @@
       <img src="img/clean/27_woodpile.jpg" alt="flog standing on top of a pile of logs" loading="lazy">
       <span class="ch-n">CHAPTER 4</span>
       <h3>the pile</h3>
-      <p>now every fee the coin earns, flog takes all of it, buys more flog, and stacks it on the pile. forever. logs don't sell.</p>
+      <p>now every fee the coin earns, flog takes all of it, buys more flog, and stacks it on the pile for 70 years. logs don't sell.</p>
     </article>
   </div>
 </section>
@@ -146,7 +146,7 @@
     <li>
       <span class="step-n">03</span>
       <h3>log</h3>
-      <p>the bought $FLOG is locked <b>forever</b> in a Streamflow token lock: unlock date 100 years out, nobody can cancel it. every claim, buy and lock goes in the flog log.</p>
+      <p>the bought $FLOG goes into a Streamflow token lock for <b>70 years</b>, the longest Streamflow allows. nobody can cancel it. every claim, buy and lock goes in the flog log.</p>
     </li>
   </ol>
   <div class="counters">
@@ -159,7 +159,7 @@
     <li><b>supply</b>1,000,000,000</li>
     <li><b>tax</b>0 / 0</li>
     <li><b>creator fees</b>100% → buyback</li>
-    <li><b>buybacks</b>locked 100 years</li>
+    <li><b>buybacks</b>locked 70 years</li>
     <li><b>claims</b>every 5 min</li>
     <li><b>locks</b>every ~2 SOL of fees</li>
   </ul>
@@ -218,7 +218,7 @@
     <a class="proof-card" id="proof-locks" href="https://app.streamflow.finance" target="_blank" rel="noopener">
       <span class="pc-k">THE LOCKS</span>
       <span class="pc-v">Streamflow</span>
-      <span class="pc-d">each buyback gets its own Streamflow token lock: unlock date 100 years out, cancel and transfer turned off for everyone, including us. locked wallets show up tagged LOCKED in Axiom's holders list.</span>
+      <span class="pc-d">each buyback gets its own Streamflow token lock: unlock date 70 years out (Streamflow's maximum), cancel and transfer turned off for everyone, including us. locked wallets show up tagged LOCKED in Axiom's holders list.</span>
     </a>
   </div>
 </section>
@@ -316,9 +316,9 @@
   <div class="faq-list">
     <details open><summary>what are creator fees?</summary><p>pump.fun pays a small cut of every $FLOG trade to the coin's creator. normally the dev keeps it. here it goes to the fee wallet, and the bot spends all of it on buybacks.</p></details>
     <details><summary>where does the money go, exactly?</summary><p>fees get claimed into the fee wallet. once enough builds up, all of it buys $FLOG on the open market and the $FLOG is locked straight away. the only things taken out are network fees, Streamflow's fee for each lock, and a tiny reserve the wallet keeps to pay for transactions.</p></details>
-    <details><summary>can anyone unlock the pile?</summary><p>no. each buyback gets its own Streamflow token lock with the unlock date set 100 years out, and cancel and transfer turned off for everyone. every row in the flog log links straight to its lock on Streamflow so you can check it yourself.</p></details>
+    <details><summary>can anyone unlock the pile?</summary><p>not for 70 years. each buyback gets its own Streamflow token lock with the unlock date set as far out as Streamflow allows (70 years, around 2096), and cancel and transfer turned off for everyone. every row in the flog log links straight to its lock on Streamflow so you can check it yourself.</p></details>
     <details><summary>why not lock every 5 minutes?</summary><p>every Streamflow lock costs a fixed fee in SOL plus a small cut of the tokens. locking tiny amounts would waste most of it on fees. so the bot claims every 5 minutes, lets the SOL stack up, then buys and locks in one go once there's about 2 SOL (or once a day if there's at least 1 SOL). the bar in "the flog machine" shows how close the next log is.</p></details>
-    <details><summary>why lock it forever instead of burning?</summary><p>so you can see it. a lock shows up as a real pile you can count, with every log on chain. burned tokens just disappear.</p></details>
+    <details><summary>why lock instead of burning?</summary><p>so you can see it. a lock shows up as a real pile you can count, tagged LOCKED on Axiom, with every log on chain. burned tokens just disappear.</p></details>
     <details><summary>what if the bot stops?</summary><p>the fees just wait in pump.fun until it runs again. nothing gets lost. the pill at the top of the page shows whether the bot is online and when it runs next.</p></details>
     <details><summary>is there a roadmap?</summary><p>no. it's a log.</p></details>
   </div>
@@ -352,6 +352,6 @@
   </div>
 </div>
 
-<script src="app.js?v=7"></script>
+<script src="app.js?v=8"></script>
 </body>
 </html>
