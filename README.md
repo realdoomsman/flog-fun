@@ -4,7 +4,7 @@ Static site: no build step. Upload this folder to any static host (Netlify, Verc
 
 ## When the coin is live
 
-Open `app.js` and set `CONFIG.ca` to the contract address. The buy (pump.fun) and chart (dexscreener) buttons fill themselves in from it. Then set `links.x` and `links.telegram`.
+Open `app.js` and set `CONFIG.ca` to the contract address. The buy (pump.fun) and chart (dexscreener) buttons fill themselves in from it. Then set `links.x`.
 
 ## Adding a buyback to the flog log
 

@@ -7,7 +7,6 @@ const CONFIG = {
     buy: "",       // default: https://pump.fun/coin/<ca>
     chart: "",     // default: https://dexscreener.com/solana/<ca>
     x: "https://x.com",
-    telegram: "https://t.me",
   },
   explorer: "https://solscan.io/tx/",
 };
