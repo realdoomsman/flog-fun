@@ -83,6 +83,8 @@ section { position: relative; padding: 120px 6vw; }
 .ca-label { font-weight: 800; }
 .ca code { font-family: var(--mono); font-size: 22px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ca button { border: 0; border-radius: 999px; padding: 9px 18px; background: var(--ink); color: var(--paper); font: 700 15px var(--sans); cursor: pointer; }
+.ca-warn { margin: -8px 0 18px; max-width: 560px; font-size: 15px; color: #ffd2a8; background: rgba(120, 30, 20, .55); border: 1px solid rgba(232, 52, 43, .6); border-radius: 12px; padding: 8px 12px; }
+.ca-warn code { font-family: var(--mono); font-size: 18px; color: #fff; }
 .links { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* marquee */
