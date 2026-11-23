@@ -141,7 +141,7 @@ function renderLog(data) {
         e.claim_tx && `<a href="${CONFIG.explorer}${e.claim_tx}" target="_blank" rel="noopener">claim ${short(e.claim_tx)}</a>`,
         e.buy_tx && `<a href="${CONFIG.explorer}${e.buy_tx}" target="_blank" rel="noopener">buy ${short(e.buy_tx)}</a>`,
         e.lock_tx && `<a href="${CONFIG.explorer}${e.lock_tx}" target="_blank" rel="noopener">lock ${short(e.lock_tx)}</a>`,
-        e.escrow && `<a href="${CONFIG.account}${e.escrow}" target="_blank" rel="noopener">escrow</a>`,
+        (e.lock_url || e.escrow) && `<a href="${e.lock_url || CONFIG.account + e.escrow}" target="_blank" rel="noopener">view lock</a>`,
       ].filter(Boolean).join(" · ");
       const tr = document.createElement("tr");
       tr.innerHTML = `<td>${String(i).padStart(3, "0")}</td><td>${e.date || ""}</td><td>${fmt(e.fees_sol || 0, 3)} SOL</td><td>${fmt(e.bought || 0)}</td><td>${e.locked_until || ""}</td><td>${proof}</td>`;

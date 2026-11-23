@@ -1,36 +1,19 @@
 # flog.fun
 
-Static site: no build step. Upload this folder to any static host (Netlify, Vercel, Cloudflare Pages) and point `flog.fun` at it. To preview locally, run `npx serve .` in this folder. The meme maker's download is blocked if you open `index.html` straight from disk.
+Static site, no build step, hosted on GitHub Pages (this repo, custom domain `flog.fun`). Push to `main` and it's live in about a minute. To preview locally, run `npx serve .` in this folder; the meme maker and log-ify downloads are blocked if you open `index.html` straight from disk.
 
 ## When the coin is live
 
-Open `app.js` and set `CONFIG.ca` to the contract address. The buy (pump.fun) and chart (dexscreener) buttons fill themselves in from it. Then set `links.x`.
+Open `app.js` and set:
 
-## Adding a buyback to the flog log
+- `CONFIG.ca`: the contract address. The buy (pump.fun) and chart (dexscreener) buttons fill themselves in from it.
+- `CONFIG.links.x`: your X profile.
+- `CONFIG.keeper`: the keeper's public URL (see `../LAUNCH.md`).
 
-Every time you claim creator fees, buy back and lock, add one entry to `log.json`:
+## The flog log
 
-```json
-{
-  "supply": 1000000000,
-  "entries": [
-    {
-      "date": "2026-11-30",
-      "fees_sol": 2.41,
-      "bought": 3150000,
-      "locked": 3150000,
-      "locked_until": "2027-11-30",
-      "claim_tx": "<signature of the fee claim>",
-      "buy_tx": "<signature of the buy>",
-      "lock_tx": "<signature of the lock>"
-    }
-  ]
-}
-```
+The keeper bot writes the log. The site reads `<CONFIG.keeper>/log` every minute: one entry per buyback, each with its claim, buy and lock transactions and a link to its Streamflow lock. The counters, the pile and the status pill in the hero all come from it. Nothing needs editing by hand.
 
-- `locked` is optional; when it's missing the site counts `bought` as locked.
-- Any `*_tx` you leave out is just not shown. Links go to Solscan (`CONFIG.explorer`).
-- Each entry adds one log to the pile and updates the counters.
-- `supply` is the total token supply, used for the "% of supply locked" counter.
+`log.json` in this folder is only a fallback for when the keeper URL isn't set or can't be reached. It uses the same shape as `/log`.
 
 Fonts are VT323 and Bricolage Grotesque (SIL Open Font License, see `fonts/`).
