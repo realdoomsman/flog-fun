@@ -1,0 +1,438 @@
+{
+ "sightings": [
+  {
+   "id": "01_stairs",
+   "file": "img/sightings/01_stairs.jpg",
+   "clean": "img/clean/01_stairs.jpg",
+   "place": "church stairwell",
+   "time": "4:51pm",
+   "note": "coming downstairs to write the buyback in the log"
+  },
+  {
+   "id": "02_pines",
+   "file": "img/sightings/02_pines.jpg",
+   "clean": "img/clean/02_pines.jpg",
+   "place": "pine forest",
+   "time": "6:02am",
+   "note": "visiting family"
+  },
+  {
+   "id": "03_hospital",
+   "file": "img/sightings/03_hospital.jpg",
+   "clean": "img/clean/03_hospital.jpg",
+   "place": "hospital, room 2",
+   "time": "11:40am",
+   "note": "diagnosis: lignification. doctor says rest."
+  },
+  {
+   "id": "04_bathroom",
+   "file": "img/sightings/04_bathroom.jpg",
+   "clean": "img/clean/04_bathroom.jpg",
+   "place": "basement bathroom",
+   "time": "3:00am",
+   "note": "just dropped another log"
+  },
+  {
+   "id": "05_street_night",
+   "file": "img/sightings/05_street_night.jpg",
+   "clean": "img/clean/05_street_night.jpg",
+   "place": "cobblestone street",
+   "time": "1:17am",
+   "note": "walking home from claiming fees"
+  },
+  {
+   "id": "06_cinema",
+   "file": "img/sightings/06_cinema.jpg",
+   "clean": "img/clean/06_cinema.jpg",
+   "place": "cinema hall",
+   "time": "9:30pm",
+   "note": "watching the buyback like a movie"
+  },
+  {
+   "id": "07_vault",
+   "file": "img/sightings/07_vault.jpg",
+   "clean": "img/clean/07_vault.jpg",
+   "place": "bank vault",
+   "time": "unknown",
+   "note": "checking on the locked logs"
+  },
+  {
+   "id": "08_metro",
+   "file": "img/sightings/08_metro.jpg",
+   "clean": "img/clean/08_metro.jpg",
+   "place": "metro platform",
+   "time": "7:48am",
+   "note": "on his way to buy back more flog"
+  },
+  {
+   "id": "09_daycare",
+   "file": "img/sightings/09_daycare.jpg",
+   "clean": "img/clean/09_daycare.jpg",
+   "place": "daycare",
+   "time": "5:59pm",
+   "note": "can't leave. he's a log."
+  },
+  {
+   "id": "10_phone_shop",
+   "file": "img/sightings/10_phone_shop.jpg",
+   "clean": "img/clean/10_phone_shop.jpg",
+   "place": "phone shop",
+   "time": "2:12pm",
+   "note": "bought a phone. can't tap it."
+  },
+  {
+   "id": "11_hotel",
+   "file": "img/sightings/11_hotel.jpg",
+   "clean": "img/clean/11_hotel.jpg",
+   "place": "hotel room 404",
+   "time": "check-in",
+   "note": "checked in. not checking out."
+  },
+  {
+   "id": "12_rooftop",
+   "file": "img/sightings/12_rooftop.jpg",
+   "clean": "img/clean/12_rooftop.jpg",
+   "place": "rooftop",
+   "time": "8:20pm",
+   "note": "waiting for the next fee claim"
+  },
+  {
+   "id": "13_snow",
+   "file": "img/sightings/13_snow.jpg",
+   "clean": "img/clean/13_snow.jpg",
+   "place": "snowy woods",
+   "time": "unknown",
+   "note": "still not selling. logs don't sell."
+  },
+  {
+   "id": "14_empty_room",
+   "file": "img/sightings/14_empty_room.jpg",
+   "clean": "img/clean/14_empty_room.jpg",
+   "place": "empty apartment",
+   "time": "the day after",
+   "note": "dev left. flog stayed."
+  },
+  {
+   "id": "15_cafe",
+   "file": "img/sightings/15_cafe.jpg",
+   "clean": "img/clean/15_cafe.jpg",
+   "place": "cafe",
+   "time": "minute 47",
+   "note": "ordered a latte. can't hold the cup."
+  },
+  {
+   "id": "16_parking",
+   "file": "img/sightings/16_parking.jpg",
+   "clean": "img/clean/16_parking.jpg",
+   "place": "parking garage, level 3",
+   "time": "4:12am",
+   "note": "just standing there. like a log."
+  },
+  {
+   "id": "17_school_dance",
+   "file": "img/sightings/17_school_dance.jpg",
+   "clean": "img/clean/17_school_dance.jpg",
+   "place": "school hall",
+   "time": "7:30pm",
+   "note": "stiff as a log"
+  },
+  {
+   "id": "18_abandoned",
+   "file": "img/sightings/18_abandoned.jpg",
+   "clean": "img/clean/18_abandoned.jpg",
+   "place": "abandoned building",
+   "time": "unknown",
+   "note": "found where the paperhands went"
+  },
+  {
+   "id": "19_news",
+   "file": "img/sightings/19_news.jpg",
+   "clean": "img/clean/19_news.jpg",
+   "place": "tv studio",
+   "time": "live",
+   "note": "breaking news: another buyback"
+  },
+  {
+   "id": "20_pool",
+   "file": "img/sightings/20_pool.jpg",
+   "clean": "img/clean/20_pool.jpg",
+   "place": "indoor pool",
+   "time": "3:15pm",
+   "note": "tried to swim. just floated."
+  },
+  {
+   "id": "21_army",
+   "file": "img/sightings/21_army.jpg",
+   "clean": "img/clean/21_army.jpg",
+   "place": "farm road",
+   "time": "dawn",
+   "note": "the logs are stacking up"
+  },
+  {
+   "id": "22_door",
+   "file": "img/sightings/22_door.jpg",
+   "clean": "img/clean/22_door.jpg",
+   "place": "your building",
+   "time": "right now",
+   "note": "knock knock. (on wood)"
+  },
+  {
+   "id": "23_alley",
+   "file": "img/sightings/23_alley.jpg",
+   "clean": "img/clean/23_alley.jpg",
+   "place": "italy",
+   "time": "noon",
+   "note": "went to italy. still locked."
+  },
+  {
+   "id": "24_lake",
+   "file": "img/sightings/24_lake.jpg",
+   "clean": "img/clean/24_lake.jpg",
+   "place": "the lake",
+   "time": "dusk",
+   "note": "standing on it. logs float."
+  },
+  {
+   "id": "25_misty_hill",
+   "file": "img/sightings/25_misty_hill.jpg",
+   "clean": "img/clean/25_misty_hill.jpg",
+   "place": "the hill",
+   "time": "6:40am",
+   "note": "no roadmap. just buybacks."
+  },
+  {
+   "id": "26_giant",
+   "file": "img/sightings/26_giant.jpg",
+   "clean": "img/clean/26_giant.jpg",
+   "place": "the horizon",
+   "time": "someday",
+   "note": "fully grown. still not selling."
+  },
+  {
+   "id": "27_woodpile",
+   "file": "img/sightings/27_woodpile.jpg",
+   "clean": "img/clean/27_woodpile.jpg",
+   "place": "the pile",
+   "time": "every day",
+   "note": "one more log on the pile"
+  },
+  {
+   "id": "28_carry",
+   "file": "img/sightings/28_carry.jpg",
+   "clean": "img/clean/28_carry.jpg",
+   "place": "the woods",
+   "time": "fee day",
+   "note": "carrying today's buyback"
+  },
+  {
+   "id": "29_sit_log",
+   "file": "img/sightings/29_sit_log.jpg",
+   "clean": "img/clean/29_sit_log.jpg",
+   "place": "the hill",
+   "time": "after the claim",
+   "note": "resting on a coworker"
+  },
+  {
+   "id": "30_parking_pile",
+   "file": "img/sightings/30_parking_pile.jpg",
+   "clean": "img/clean/30_parking_pile.jpg",
+   "place": "parking garage, level 3",
+   "time": "5:02am",
+   "note": "he brought friends"
+  }
+ ],
+ "memes": [
+  {
+   "id": "01_stairs",
+   "file": "img/memes/01_stairs.jpg",
+   "caption": "flog coming downstairs to write today's buyback in the log"
+  },
+  {
+   "id": "02_pines",
+   "file": "img/memes/02_pines.jpg",
+   "caption": "flog visiting his family"
+  },
+  {
+   "id": "03_hospital",
+   "file": "img/memes/03_hospital.jpg",
+   "caption": "doctor: you're 50% log / me: and 100% locked"
+  },
+  {
+   "id": "04_bathroom",
+   "file": "img/memes/04_bathroom.jpg",
+   "caption": "3am. flog just dropped another log (buyback confirmed)"
+  },
+  {
+   "id": "05_street_night",
+   "file": "img/memes/05_street_night.jpg",
+   "caption": "flog walking home after claiming the creator fees. going straight to buy back"
+  },
+  {
+   "id": "06_cinema",
+   "file": "img/memes/06_cinema.jpg",
+   "caption": "flog watching the buyback like it's a movie"
+  },
+  {
+   "id": "07_vault",
+   "file": "img/memes/07_vault.jpg",
+   "caption": "where the / locked logs live"
+  },
+  {
+   "id": "08_metro",
+   "file": "img/memes/08_metro.jpg",
+   "caption": "flog on his way to buy back more flog"
+  },
+  {
+   "id": "09_daycare",
+   "file": "img/memes/09_daycare.jpg",
+   "caption": "they left flog at daycare. he can't leave. he's a log"
+  },
+  {
+   "id": "10_phone_shop",
+   "file": "img/memes/10_phone_shop.jpg",
+   "caption": "flog buying a new phone so he can watch the buybacks live"
+  },
+  {
+   "id": "11_hotel",
+   "file": "img/memes/11_hotel.jpg",
+   "caption": "flog checking in. locked for 365 nights"
+  },
+  {
+   "id": "12_rooftop",
+   "file": "img/memes/12_rooftop.jpg",
+   "caption": "flog on the roof waiting for the next fee claim"
+  },
+  {
+   "id": "13_snow",
+   "file": "img/memes/13_snow.jpg",
+   "caption": "still not selling / logs don't sell"
+  },
+  {
+   "id": "14_empty_room",
+   "file": "img/memes/14_empty_room.jpg",
+   "caption": "dev left. flog stayed. logs don't leave"
+  },
+  {
+   "id": "15_cafe",
+   "file": "img/memes/15_cafe.jpg",
+   "caption": "flog paid for his latte in creator fees then bought back the change"
+  },
+  {
+   "id": "16_parking",
+   "file": "img/memes/16_parking.jpg",
+   "caption": "spotted: flog. level 3. 4:12am. he was just standing there. like a log"
+  },
+  {
+   "id": "17_school_dance",
+   "file": "img/memes/17_school_dance.jpg",
+   "caption": "flog at the school dance. stiff as a log"
+  },
+  {
+   "id": "18_abandoned",
+   "file": "img/memes/18_abandoned.jpg",
+   "caption": "flog found where all the paperhands went"
+  },
+  {
+   "id": "19_news",
+   "file": "img/memes/19_news.jpg",
+   "caption": "breaking news / another buyback"
+  },
+  {
+   "id": "20_pool",
+   "file": "img/memes/20_pool.jpg",
+   "caption": "flog in the pool. logs float. so does the chart"
+  },
+  {
+   "id": "21_army",
+   "file": "img/memes/21_army.jpg",
+   "caption": "the logs / are stacking up"
+  },
+  {
+   "id": "22_door",
+   "file": "img/memes/22_door.jpg",
+   "caption": "flog knocking (on wood) to ask if you sold"
+  },
+  {
+   "id": "23_alley",
+   "file": "img/memes/23_alley.jpg",
+   "caption": "flog went to italy. still locked"
+  },
+  {
+   "id": "24_lake",
+   "file": "img/memes/24_lake.jpg",
+   "caption": "flog standing on the lake. logs float. he knew that"
+  },
+  {
+   "id": "25_misty_hill",
+   "file": "img/memes/25_misty_hill.jpg",
+   "caption": "no roadmap / just buybacks"
+  },
+  {
+   "id": "26_giant",
+   "file": "img/memes/26_giant.jpg",
+   "caption": "flog at 1b. still locked"
+  },
+  {
+   "id": "27_woodpile",
+   "file": "img/memes/27_woodpile.jpg",
+   "caption": "every fee claim = one more log on the pile. the pile doesn't sell"
+  },
+  {
+   "id": "28_carry",
+   "file": "img/memes/28_carry.jpg",
+   "caption": "flog carrying today's buyback to the pile by hand"
+  },
+  {
+   "id": "29_sit_log",
+   "file": "img/memes/29_sit_log.jpg",
+   "caption": "flog taking a break on his coworker"
+  },
+  {
+   "id": "30_parking_pile",
+   "file": "img/memes/30_parking_pile.jpg",
+   "caption": "flog found 3 more logs in the parking garage. locked them"
+  }
+ ],
+ "cutouts": [
+  {
+   "id": "00_standing",
+   "file": "img/flog-standing.png",
+   "label": "standing"
+  }
+ ],
+ "videos": [
+  {
+   "id": "walk",
+   "file": "video/walk.mp4",
+   "poster": "video/walk.jpg",
+   "title": "flog approaching",
+   "caption": "he wanted to tell you something about fees. he never got there.",
+   "aspect": "1:1"
+  },
+  {
+   "id": "carry",
+   "file": "video/carry.mp4",
+   "poster": "video/carry.jpg",
+   "title": "fee day",
+   "caption": "today's log, delivered to the pile by hand.",
+   "aspect": "16:9"
+  },
+  {
+   "id": "hero",
+   "file": "video/hero.mp4",
+   "poster": "video/hero.jpg",
+   "title": "found in a forest",
+   "caption": "the first tape. he was already standing there.",
+   "aspect": "16:9"
+  },
+  {
+   "id": "turntable",
+   "file": "video/turntable.mp4",
+   "poster": "video/turntable.jpg",
+   "title": "specimen 001",
+   "caption": "rotated for science. he did not consent. he can't move.",
+   "aspect": "1:1"
+  }
+ ],
+ "model": "3d/flog.glb"
+}

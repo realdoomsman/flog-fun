@@ -13,42 +13,7 @@ const CONFIG = {
   keeper: "https://keeper-production-f49f8214.up.railway.app",   // keeper base URL (serves /log and /health)
 };
 // the flog log comes from the keeper's /log; log.json is the fallback (see README.md)
-
-const SIGHTINGS = [
-  ["01_stairs", "church stairwell", "4:51pm", "coming downstairs to log the buyback"],
-  ["02_pines", "pine forest", "6:02am", "visiting family"],
-  ["03_hospital", "hospital, room 2", "11:40am", "doctor says he's 50% log"],
-  ["04_bathroom", "basement bathroom", "3:00am", "just dropped another log"],
-  ["05_street_night", "cobblestone street", "1:17am", "walking home from claiming fees"],
-  ["06_cinema", "cinema hall", "9:30pm", "watching the buyback like a movie"],
-  ["07_vault", "bank vault", "unknown", "checking on the locked logs"],
-  ["08_metro", "metro platform", "7:48am", "on his way to buy back more flog"],
-  ["09_daycare", "daycare", "5:59pm", "can't leave. he's a log."],
-  ["10_phone_shop", "phone shop", "2:12pm", "new phone to watch buybacks live"],
-  ["11_hotel", "hotel room 404", "check-in", "locked for 365 nights"],
-  ["12_rooftop", "rooftop", "8:20pm", "waiting for the next fee claim"],
-  ["13_snow", "snowy woods", "unknown", "still not selling. logs don't sell."],
-  ["14_empty_room", "empty apartment", "the day after", "dev left. flog stayed."],
-  ["15_cafe", "cafe", "minute 47", "paid in creator fees"],
-  ["16_parking", "parking garage, level 3", "4:12am", "just standing there. like a log."],
-  ["17_school_dance", "school hall", "7:30pm", "stiff as a log"],
-  ["18_abandoned", "abandoned building", "unknown", "found where the paperhands went"],
-  ["19_news", "tv studio", "live", "breaking news: another buyback"],
-  ["20_pool", "indoor pool", "3:15pm", "logs float. so does the chart."],
-  ["21_army", "farm road", "dawn", "the logs are stacking up"],
-  ["22_door", "your building", "right now", "knock knock. (on wood)"],
-  ["23_alley", "italy", "noon", "went to italy. still locked."],
-  ["24_lake", "the lake", "dusk", "standing on it. logs float."],
-  ["25_misty_hill", "the hill", "6:40am", "no roadmap. just buybacks."],
-  ["26_giant", "the horizon", "at 1b", "flog at 1b"],
-  ["27_woodpile", "the pile", "every day", "one more log on the pile"],
-  ["28_carry", "the woods", "fee day", "carrying today's buyback"],
-  ["29_sit_log", "the hill", "after the claim", "resting on a coworker"],
-  ["30_parking_pile", "parking garage, level 3", "5:02am", "he brought friends"],
-];
-
-const $ = (s) => document.querySelector(s);
-const fmt = (n, d = 0) => Number(n).toLocaleString("en-US", { maximumFractionDigits: d, minimumFractionDigits: d });
+// sightings, memes, tapes, cutouts and the 3D model come from data/media.json + data/media-new.json (see README.md)
 
 // ---- links + CA ----
 const ca = CONFIG.ca.trim();
@@ -68,48 +33,7 @@ $("#ca-copy").addEventListener("click", async () => {
   setTimeout(() => (b.textContent = "copy"), 1300);
 });
 
-// ---- knock on wood (synthesised, no audio files) ----
-let actx;
-function knock(times = 2) {
-  actx = actx || new (window.AudioContext || window.webkitAudioContext)();
-  for (let k = 0; k < times; k++) {
-    const t = actx.currentTime + k * 0.13;
-    const osc = actx.createOscillator();
-    const g = actx.createGain();
-    osc.type = "triangle";
-    osc.frequency.setValueAtTime(260, t);
-    osc.frequency.exponentialRampToValueAtTime(140, t + 0.08);
-    g.gain.setValueAtTime(0.0001, t);
-    g.gain.exponentialRampToValueAtTime(0.6, t + 0.004);
-    g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
-    const len = Math.floor(actx.sampleRate * 0.03);
-    const buf = actx.createBuffer(1, len, actx.sampleRate);
-    const ch = buf.getChannelData(0);
-    for (let i = 0; i < len; i++) ch[i] = (Math.random() * 2 - 1) * (1 - i / len) ** 3;
-    const noise = actx.createBufferSource();
-    noise.buffer = buf;
-    const bp = actx.createBiquadFilter();
-    bp.type = "bandpass";
-    bp.frequency.value = 1400;
-    bp.Q.value = 1.2;
-    const ng = actx.createGain();
-    ng.gain.value = 0.5;
-    noise.connect(bp).connect(ng).connect(actx.destination);
-    osc.connect(g).connect(actx.destination);
-    osc.start(t); osc.stop(t + 0.14);
-    noise.start(t);
-  }
-}
-const spec = $("#specimen");
-spec.addEventListener("click", () => {
-  knock();
-  spec.classList.remove("knock");
-  void spec.offsetWidth;
-  spec.classList.add("knock");
-});
-
 // ---- camcorder clock in the hero (visitor's own time) ----
-const MON = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
 function tick() {
   const d = new Date();
   $("#osd-date").textContent = `${MON[d.getMonth()]} ${String(d.getDate()).padStart(2, "0")} ${d.getFullYear()}`;
@@ -119,7 +43,7 @@ function tick() {
 tick();
 setInterval(tick, 1000);
 
-// ---- the flog log: counters, ledger, pile ----
+// ---- the flog log: counters, ledger, pile, rings ----
 function short(sig) { return sig.slice(0, 4) + "…" + sig.slice(-4); }
 function renderLog(data) {
   const entries = data.entries || [];
@@ -176,8 +100,16 @@ function renderLog(data) {
   if (entries.length) {
     $("#pile-cap").textContent = `${entries.length} log${entries.length === 1 ? "" : "s"} on the pile` + (entries.length > shown ? ` (showing ${shown})` : "") + ". none of them are going anywhere.";
   }
+  renderRings(entries);
   renderMachine(data);
 }
+// knock on any log in the pile
+$("#pile").addEventListener("click", (e) => {
+  const l = e.target.closest(".log-end");
+  if (!l) return;
+  knock(1, 0.8 + Math.random() * 0.5);
+  l.classList.remove("knocked"); void l.offsetWidth; l.classList.add("knocked");
+});
 
 // ---- live machine status (pill in the hero + proof cards) ----
 let machine = null;
@@ -193,7 +125,7 @@ function renderMachine(data) {
     $("#nextlog").hidden = false;
     $("#nl-val").textContent = `${fmt(pend, 3)} / ${fmt(goal, 0)} SOL`;
     $("#nl-fill").style.width = `${Math.min(100, (pend / goal) * 100)}%`;
-    const cost = data.lock_cost_sol ? ` each lock costs about ${fmt(data.lock_cost_sol, 2)} SOL${data.lock_fee_pct ? ` + ${data.lock_fee_pct}% of the tokens` : ""} on Streamflow, so the bot batches.` : "";
+    const cost = data.lock_cost_sol ? ` each lock costs about ${fmt(data.lock_cost_sol, 2)} SOL${data.lock_fee_pct ? ` + ${data.lock_fee_pct}% of the tokens` : ""} on Streamflow, so the sawmill batches.` : "";
     const wait = data.max_wait_hours ? ` if it takes longer than ${data.max_wait_hours}h, it locks anyway once there's ${fmt(data.min_buy_sol_after_wait || 1, 1)} SOL.` : "";
     $("#nl-note").textContent = `claimed fees stack up here until there's enough to buy and lock in one go.${cost}${wait}`;
   }
@@ -248,48 +180,154 @@ async function loadLog() {
 loadLog();
 if (CONFIG.keeper) setInterval(loadLog, 60000);
 
-// ---- tapes: play when on screen ----
-const io = new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? e.target.play().catch(() => {}) : e.target.pause())), { threshold: 0.4 });
-document.querySelectorAll(".tape video").forEach((v) => io.observe(v));
+// ---- media: data/media.json (base) + data/media-new.json (optional, newer assets) ----
+async function getJSON(url) {
+  try {
+    const r = await fetch(url, { cache: "no-cache" });
+    return r.ok ? await r.json() : null;
+  } catch { return null; }
+}
+function mergeMedia(...parts) {
+  const out = { sightings: [], memes: [], cutouts: [], videos: [], model: null };
+  for (const p of parts) {
+    if (!p) continue;
+    for (const k of ["sightings", "memes", "cutouts", "videos"]) {
+      for (const item of p[k] || []) {
+        if (!item || !item.id || !item.file) continue;
+        const at = out[k].findIndex((x) => x.id === item.id);
+        if (at >= 0) out[k][at] = { ...out[k][at], ...item }; else out[k].push(item);
+      }
+    }
+    if (p.model) out.model = p.model;
+  }
+  return out;
+}
+// clean (no-stamp) version of a sighting, used by the meme maker and the sticker studio
+const cleanOf = (s) => s.clean || s.file.replace("img/sightings/", "img/clean/");
 
 // ---- galleries + lightbox ----
-function openLightbox(src, cap, file) {
-  $("#lb-img").src = src;
-  $("#lb-cap").textContent = cap;
-  $("#lb-dl").href = src;
-  $("#lb-dl").download = file;
+const lb = { list: [], i: 0 };
+function openLightbox(list, i) {
+  lb.list = list; lb.i = i;
+  const it = list[i];
+  $("#lb-img").src = it.src;
+  $("#lb-img").alt = it.cap;
+  $("#lb-cap").textContent = it.cap;
+  $("#lb-dl").href = it.src;
+  $("#lb-dl").download = it.name;
+  $("#lb-prev").hidden = $("#lb-next").hidden = list.length < 2;
   $("#lightbox").hidden = false;
 }
-$("#lb-close").addEventListener("click", () => ($("#lightbox").hidden = true));
-$("#lightbox").addEventListener("click", (e) => { if (e.target.id === "lightbox") e.target.hidden = true; });
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("#lightbox").hidden = true; });
-
-SIGHTINGS.forEach(([id, place, time, note], i) => {
-  const c = document.createElement("div");
-  c.className = "card";
-  c.innerHTML = `<img loading="lazy" src="img/sightings/${id}.jpg" alt="flog sighting: ${place}"><div class="meta"><b>#${String(i + 1).padStart(3, "0")} · ${place} · ${time}</b>${note}</div>`;
-  c.addEventListener("click", () => openLightbox(`img/sightings/${id}.jpg`, `${place}, ${time}: ${note}`, `flog-${id}.jpg`));
-  $("#grid").appendChild(c);
-
-  const m = document.createElement("div");
-  m.className = "card";
-  m.innerHTML = `<img loading="lazy" src="img/memes/${id}.jpg" alt="flog meme: ${note}">`;
-  m.addEventListener("click", () => openLightbox(`img/memes/${id}.jpg`, note, `flog-meme-${id}.jpg`));
-  $("#memes-grid").appendChild(m);
+const lbStep = (d) => openLightbox(lb.list, (lb.i + d + lb.list.length) % lb.list.length);
+const lbClose = () => ($("#lightbox").hidden = true);
+$("#lb-close").addEventListener("click", lbClose);
+$("#lb-prev").addEventListener("click", () => lbStep(-1));
+$("#lb-next").addEventListener("click", () => lbStep(1));
+$("#lightbox").addEventListener("click", (e) => { if (e.target.id === "lightbox") lbClose(); });
+document.addEventListener("keydown", (e) => {
+  if ($("#lightbox").hidden) return;
+  if (e.key === "Escape") lbClose();
+  else if (e.key === "ArrowLeft") lbStep(-1);
+  else if (e.key === "ArrowRight") lbStep(1);
 });
 
+// a grid that shows `page` cards at a time with a "more" button
+function pagedGrid(grid, moreBtn, items, page, make) {
+  let shown = 0;
+  const more = () => {
+    const frag = document.createDocumentFragment();
+    items.slice(shown, shown + page).forEach((it, k) => frag.appendChild(make(it, shown + k)));
+    shown = Math.min(items.length, shown + page);
+    grid.appendChild(frag);
+    initReveal(grid);
+    moreBtn.hidden = shown >= items.length;
+  };
+  moreBtn.addEventListener("click", more);
+  more();
+}
+
+function renderSightings(list) {
+  const lbList = list.map((s) => ({ src: s.file, cap: `${s.place}, ${s.time}: ${s.note}`, name: `flog-${s.id}.jpg` }));
+  pagedGrid($("#grid"), $("#grid-more"), list, 12, (s, i) => {
+    const c = document.createElement("button");
+    c.type = "button";
+    c.className = "card";
+    c.setAttribute("data-reveal", "");
+    c.innerHTML = `<img loading="lazy" src="${esc(s.file)}" alt="flog sighting: ${esc(s.place)}" width="720" height="720"><span class="meta"><b>#${String(i + 1).padStart(3, "0")} · ${esc(s.place)} · ${esc(s.time)}</b>${esc(s.note)}</span>`;
+    c.addEventListener("click", () => openLightbox(lbList, i));
+    return c;
+  });
+}
+function renderMemes(list) {
+  const lbList = list.map((m) => ({ src: m.file, cap: m.caption, name: `flog-meme-${m.id}.jpg` }));
+  pagedGrid($("#memes-grid"), $("#memes-more"), list, 12, (m, i) => {
+    const c = document.createElement("button");
+    c.type = "button";
+    c.className = "card";
+    c.setAttribute("data-reveal", "");
+    c.innerHTML = `<img loading="lazy" src="${esc(m.file)}" alt="flog meme: ${esc(m.caption)}">`;
+    c.addEventListener("click", () => openLightbox(lbList, i));
+    return c;
+  });
+}
+
+// ---- tapes: lazy-load, play when on screen ----
+const tapeIO = new IntersectionObserver((es) => es.forEach((e) => {
+  const v = e.target;
+  if (e.isIntersecting) {
+    if (!v.src) v.src = v.dataset.src;
+    if (!v.closest(".paused")) v.play().catch(() => {});
+  } else v.pause();
+}), { threshold: 0.4 });
+function renderTapes(list) {
+  const grid = $("#tape-grid");
+  list.forEach((t, i) => {
+    const f = document.createElement("figure");
+    f.className = `tape ${t.aspect === "16:9" ? "wide" : "square"}`;
+    f.setAttribute("data-reveal", "");
+    // the tapes carry their own camcorder OSD, so the only overlay is a pause card when you tap one
+    f.innerHTML = `<div class="tape-screen"><video data-src="${esc(t.file)}" poster="${esc(t.poster || "")}" muted loop playsinline preload="none" aria-label="${esc(t.title)}"></video><span class="tape-pause">PAUSE ❚❚</span></div><figcaption><span class="tape-no">TAPE ${String(i + 1).padStart(2, "0")}</span><b>${esc(t.title)}</b> ${esc(t.caption)}</figcaption>`;
+    const v = f.querySelector("video");
+    tapeIO.observe(v);
+    f.addEventListener("click", () => {
+      if (v.paused) { if (!v.src) v.src = v.dataset.src; v.play().catch(() => {}); f.classList.remove("paused"); }
+      else { v.pause(); f.classList.add("paused"); }
+    });
+    grid.appendChild(f);
+  });
+  initReveal(grid);
+}
+
 // ---- meme maker ----
-(() => {
+const CAPTION_BANK = [
+  "doctor: it's stage 4 lignification\nme: is that bullish",
+  "diamond hands vs wooden hands",
+  "flog when someone says bonfire",
+  "the beaver is not your friend",
+  "me explaining to my wife why i'm turning into a log",
+  "every 2 SOL another log hits the pile. the pile doesn't sell.",
+  "flog at the sawmill. 3am. cutting logs. no hands.",
+  "petrified holder, est. 2026",
+  "flog tried to swim. he just floated.",
+  "count the rings",
+  "it's not a bag. it's a log.",
+  "flog at therapy: \"i can't feel my hands\"\n\"they're wood\"\n\"oh\"",
+  "you can't sell if you're wood",
+  "don't trust the frog. check the log.",
+  "the frogs asked for a king. they got a log. best king they ever had.",
+  "five little speckled frogs sat on a speckled log. four jumped in. one stayed.",
+  "in britain \"to flog\" means to sell. flog has never flogged.",
+  "paper is wood that gave up halfway",
+  "vote log",
+];
+function initMaker(sightings) {
   const cv = $("#mk-canvas");
   const ctx = cv.getContext("2d");
   const thumbs = $("#mk-thumbs");
-  let current = SIGHTINGS[26][0];
+  let current = (sightings.find((s) => s.id === "27_woodpile") || sightings[0])?.id;
+  const byId = Object.fromEntries(sightings.map((s) => [s.id, s]));
   const cache = {};
-  const load = (id) => cache[id] ? Promise.resolve(cache[id]) : new Promise((res) => {
-    const im = new Image();
-    im.onload = () => res((cache[id] = im));
-    im.src = `img/clean/${id}.jpg`;
-  });
+  const load = (id) => cache[id] || (cache[id] = loadImg(cleanOf(byId[id])).catch(() => loadImg(byId[id].file)));
   function wrap(text, maxW) {
     const out = [];
     for (const para of text.split("\n")) {
@@ -303,6 +341,7 @@ SIGHTINGS.forEach(([id, place, time, note], i) => {
     return out;
   }
   async function draw() {
+    if (!current) return;
     const im = await load(current);
     const S = 1080, style = $("#mk-style").value, text = $("#mk-text").value.trim();
     if (style === "top" && text) {
@@ -320,14 +359,7 @@ SIGHTINGS.forEach(([id, place, time, note], i) => {
     cv.width = S; cv.height = S;
     ctx.drawImage(im, 0, 0, S, S);
     if (style === "stamp") {
-      ctx.font = "64px VT323, monospace";
-      ctx.textAlign = "right"; ctx.textBaseline = "alphabetic";
-      const d = new Date();
-      const t = text || `'${String(d.getFullYear()).slice(2)} ${String(d.getMonth() + 1).padStart(2, "0")} ${String(d.getDate()).padStart(2, "0")}`;
-      ctx.shadowColor = "rgba(255,120,20,.9)"; ctx.shadowBlur = 14;
-      ctx.fillStyle = "#ff7a14";
-      ctx.fillText(t.slice(0, 40), S - 46, S - 46);
-      ctx.shadowBlur = 0;
+      drawStamp(ctx, S, S, (text || digicamDate()).slice(0, 40));
       return;
     }
     if (!text) return;
@@ -345,39 +377,37 @@ SIGHTINGS.forEach(([id, place, time, note], i) => {
       lines.forEach((l, i) => { ctx.strokeText(l, S / 2, y0 + i * lh); ctx.fillText(l, S / 2, y0 + i * lh); });
     }
   }
-  SIGHTINGS.forEach(([id]) => {
+  sightings.forEach((s) => {
     const t = document.createElement("img");
-    t.src = `img/clean/${id}.jpg`;
-    t.alt = id;
+    t.src = cleanOf(s);
+    t.onerror = () => { if (!t.src.endsWith(s.file)) t.src = s.file; };
+    t.alt = s.place;
     t.loading = "lazy";
+    t.width = t.height = 90;
     t.addEventListener("click", () => {
-      current = id;
+      current = s.id;
       thumbs.querySelectorAll("img").forEach((x) => x.classList.toggle("on", x === t));
       draw();
     });
-    if (id === current) t.classList.add("on");
+    if (s.id === current) t.classList.add("on");
     thumbs.appendChild(t);
   });
   $("#mk-text").addEventListener("input", draw);
   $("#mk-style").addEventListener("change", draw);
   $("#mk-random").addEventListener("click", () => {
-    const i = Math.floor(Math.random() * SIGHTINGS.length);
-    thumbs.querySelectorAll("img")[i].click();
+    const all = thumbs.querySelectorAll("img");
+    all[Math.floor(Math.random() * all.length)]?.click();
   });
-  $("#mk-dl").addEventListener("click", () => {
-    const a = document.createElement("a");
-    a.download = `flog-meme-${Date.now()}.png`;
-    try {
-      a.href = cv.toDataURL("image/png");
-    } catch {
-      // canvas export is blocked when the page is opened straight from disk (file://)
-      alert("download needs the site to be hosted (or run: npx serve site).");
-      return;
-    }
-    a.click();
+  $("#mk-cap").addEventListener("click", () => {
+    const cur = $("#mk-text").value;
+    let next = cur;
+    while (next === cur) next = CAPTION_BANK[Math.floor(Math.random() * CAPTION_BANK.length)];
+    $("#mk-text").value = next;
+    draw();
   });
+  $("#mk-dl").addEventListener("click", () => { knock(1); downloadCanvas(cv, `flog-meme-${Date.now()}.png`); });
   document.fonts.ready.then(draw);
-})();
+}
 
 // ---- log-ify your pfp: your image inside a fresh-cut log end, leaf on top ----
 (() => {
@@ -460,12 +490,20 @@ SIGHTINGS.forEach(([id, place, time, note], i) => {
   drop.addEventListener("drop", (e) => { e.preventDefault(); drop.classList.remove("over"); load(e.dataTransfer.files[0]); });
   $("#lg-bark").addEventListener("change", draw);
   $("#lg-tag").addEventListener("change", draw);
-  $("#lg-dl").addEventListener("click", () => {
-    knock(1);
-    const a = document.createElement("a");
-    a.download = "flog-pfp.png";
-    try { a.href = cv.toDataURL("image/png"); } catch { alert("download needs the site to be hosted."); return; }
-    a.click();
-  });
+  $("#lg-dl").addEventListener("click", () => { knock(1); downloadCanvas(cv, "flog-pfp.png"); });
   document.fonts.ready.then(draw);
+})();
+
+// ---- boot everything that depends on media ----
+(async () => {
+  const [base, fresh] = await Promise.all([getJSON("data/media.json"), getJSON("data/media-new.json")]);
+  const media = mergeMedia(base, fresh);
+  window.FLOG_MEDIA = media;
+  renderTapes(media.videos);
+  renderSightings(media.sightings);
+  renderMemes(media.memes);
+  initMaker(media.sightings);
+  initSpecimen(media);
+  window.FLOG_STUDIO = initStudio(media);
+  initQuiz(media);
 })();
