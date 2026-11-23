@@ -226,13 +226,23 @@ function tickMachine() {
 setInterval(tickMachine, 1000);
 
 async function loadLog() {
-  const urls = [CONFIG.keeper && CONFIG.keeper.replace(/\/$/, "") + "/log", "log.json"].filter(Boolean);
-  for (const u of urls) {
+  if (CONFIG.keeper) {
     try {
-      const r = await fetch(u, { cache: "no-store" });
+      const r = await fetch(CONFIG.keeper.replace(/\/$/, "") + "/log", { cache: "no-store" });
       if (r.ok) return renderLog(await r.json());
     } catch {}
+    // keeper unreachable: keep the last good data on screen, but say so
+    if (machine) {
+      $("#keeper-pill").dataset.state = "down";
+      $("#keeper-text").textContent = "can't reach the machine right now. fees wait safely in pump.fun.";
+      machine = { ...machine, last_run: null };
+      return;
+    }
   }
+  try {
+    const r = await fetch("log.json", { cache: "no-store" });
+    if (r.ok) return renderLog(await r.json());
+  } catch {}
   renderLog({ entries: [] });
 }
 loadLog();
