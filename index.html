@@ -16,7 +16,7 @@
 <link rel="icon" href="img/favicon.png">
 <link rel="preload" href="fonts/BricolageGrotesque.ttf" as="font" type="font/ttf" crossorigin>
 <link rel="preload" href="fonts/VT323-Regular.ttf" as="font" type="font/ttf" crossorigin>
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 <div class="grain" aria-hidden="true"></div>
@@ -24,12 +24,13 @@
 <header class="top">
   <a class="brand" href="#top"><img src="img/pfp-400.png" alt=""><span>FLOG</span></a>
   <nav>
-    <a href="#lore">lore</a>
+    <a href="#legend">legend</a>
     <a href="#machine">the machine</a>
     <a href="#log">the log</a>
+    <a href="#proof">proof</a>
     <a href="#tapes">tapes</a>
-    <a href="#sightings">sightings</a>
-    <a href="#maker">meme maker</a>
+    <a href="#maker">make memes</a>
+    <a href="#faq">faq</a>
   </nav>
   <a class="btn btn-frog small" data-link="buy" href="#" target="_blank" rel="noopener">buy $FLOG</a>
 </header>
@@ -45,7 +46,7 @@
   <div class="hero-copy">
     <p class="kicker">TAPE 00 · FOUND IN A FOREST</p>
     <h1 class="wordmark">FLOG</h1>
-    <p class="tag">half frog. half log. <b>every fee goes back on the pile.</b></p>
+    <p class="tag">half frog. half log. <b>every fee buys $FLOG and locks it forever.</b></p>
     <div class="ca" id="ca">
       <span class="ca-label">CA</span>
       <code id="ca-text">not cut yet</code>
@@ -56,12 +57,13 @@
       <a class="btn btn-ghost" data-link="chart" href="#" target="_blank" rel="noopener">chart</a>
       <a class="btn btn-ghost" data-link="x" href="#" target="_blank" rel="noopener">x</a>
     </div>
+    <p class="keeper-pill" id="keeper-pill"><span class="k-dot"></span><span id="keeper-text">the machine is waiting for the coin</span></p>
   </div>
 </section>
 
 <div class="marquee" aria-hidden="true"><div class="marquee-track">
-  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCK IT</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
-  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCK IT</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
+  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCKED FOREVER</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
+  <span>FEES IN</span><i></i><span>BUY BACK</span><i></i><span>LOCKED FOREVER</span><i></i><span>LOGS DON'T SELL</span><i></i><span>KNOCK ON WOOD</span><i></i><span>HALF FROG HALF LOG</span><i></i>
 </div></div>
 
 <!-- LORE -->
@@ -93,6 +95,38 @@
   </div>
 </section>
 
+<!-- LEGEND -->
+<section class="legend" id="legend">
+  <p class="eyebrow">// the legend of flog</p>
+  <h2>how a frog became wood</h2>
+  <div class="chapters">
+    <article class="chapter">
+      <img src="img/clean/29_sit_log.jpg" alt="flog sitting on a log on a misty hill" loading="lazy">
+      <span class="ch-n">CHAPTER 1</span>
+      <h3>the sit</h3>
+      <p>a normal frog found a nice log and sat on it. the chart dipped. he kept sitting. the chart dipped again. he kept sitting.</p>
+    </article>
+    <article class="chapter">
+      <img src="img/clean/24_lake.jpg" alt="flog standing on a lake at dusk" loading="lazy">
+      <span class="ch-n">CHAPTER 2</span>
+      <h3>the change</h3>
+      <p>weeks passed. bark grew up his belly. rings formed. a leaf came out of his head. he didn't notice. he was watching the chart.</p>
+    </article>
+    <article class="chapter">
+      <img src="img/clean/13_snow.jpg" alt="flog standing in snowy woods" loading="lazy">
+      <span class="ch-n">CHAPTER 3</span>
+      <h3>wooden hands</h3>
+      <p>one day he tried to press sell. his hands were wood. the button didn't move. he tried again. still wood. he's at peace with it now.</p>
+    </article>
+    <article class="chapter">
+      <img src="img/clean/27_woodpile.jpg" alt="flog standing on top of a pile of logs" loading="lazy">
+      <span class="ch-n">CHAPTER 4</span>
+      <h3>the pile</h3>
+      <p>now every fee the coin earns, flog takes all of it, buys more flog, and stacks it on the pile. forever. logs don't sell.</p>
+    </article>
+  </div>
+</section>
+
 <!-- MACHINE -->
 <section class="machine" id="machine">
   <p class="eyebrow">// the flog machine</p>
@@ -112,7 +146,7 @@
     <li>
       <span class="step-n">03</span>
       <h3>log</h3>
-      <p>the bought $FLOG gets locked and stacked on the pile. every claim, buy and lock goes in the flog log with its transaction link.</p>
+      <p>the bought $FLOG is locked <b>forever</b> in a Jupiter Lock contract: unlock date 100 years out, nobody can cancel it. every claim, buy and lock goes in the flog log.</p>
     </li>
   </ol>
   <div class="counters">
@@ -121,6 +155,13 @@
     <div class="counter"><span class="c-label">locked on the pile</span><span class="c-val" id="c-locked">0</span><span class="c-unit" id="c-locked-pct">% of supply</span></div>
     <div class="counter"><span class="c-label">logs on the pile</span><span class="c-val" id="c-logs">0</span><span class="c-unit">entries</span></div>
   </div>
+  <ul class="tokenomics">
+    <li><b>supply</b>1,000,000,000</li>
+    <li><b>tax</b>0 / 0</li>
+    <li><b>creator fees</b>100% → buyback</li>
+    <li><b>buybacks</b>locked 100 years</li>
+    <li><b>cycle</b>every 5 min</li>
+  </ul>
 
   <div class="pile-wrap">
     <div class="pile-stage">
@@ -149,6 +190,30 @@
         </tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof" id="proof">
+  <p class="eyebrow">// proof, not promises</p>
+  <h2>check the wood yourself</h2>
+  <p class="sub">a bot runs the machine, not a person. it claims, buys and locks on its own and writes every step on chain. here's where to look.</p>
+  <div class="proof-grid">
+    <a class="proof-card" id="proof-bot" href="#" target="_blank" rel="noopener">
+      <span class="pc-k">THE BOT</span>
+      <span class="pc-v" id="proof-bot-v">waiting for launch</span>
+      <span class="pc-d">runs every 5 minutes: claim fees → buy $FLOG → lock it. its live status is the pill at the top of this page.</span>
+    </a>
+    <a class="proof-card" id="proof-wallet" href="#" target="_blank" rel="noopener">
+      <span class="pc-k">THE WALLET</span>
+      <span class="pc-v mono" id="proof-wallet-v">—</span>
+      <span class="pc-d">the fee wallet. 100% of creator fees land here and leave again as buybacks. every tx carries a <code>flog-keeper</code> memo.</span>
+    </a>
+    <a class="proof-card" id="proof-locks" href="https://lock.jup.ag" target="_blank" rel="noopener">
+      <span class="pc-k">THE LOCKS</span>
+      <span class="pc-v">Jupiter Lock</span>
+      <span class="pc-d">each buyback gets its own lock. unlock date 100 years out. cancel turned off for everyone, including us.</span>
+    </a>
   </div>
 </section>
 
@@ -204,11 +269,52 @@
   </div>
 </section>
 
+<!-- LOGIFY -->
+<section class="logify" id="logify">
+  <p class="eyebrow">// join the pile</p>
+  <h2>log-ify your pfp</h2>
+  <p class="sub">drop your profile pic in. it comes out as a fresh-cut log with a leaf on top. nothing gets uploaded anywhere, it all happens in your browser.</p>
+  <div class="logify-ui">
+    <canvas id="lg-canvas" width="1000" height="1000"></canvas>
+    <div class="mk-controls">
+      <label class="drop" id="lg-drop">
+        <input type="file" id="lg-file" accept="image/*" hidden>
+        <span>click or drop an image here</span>
+      </label>
+      <label>bark
+        <select id="lg-bark">
+          <option value="oak">oak</option>
+          <option value="birch">birch</option>
+          <option value="burnt">burnt</option>
+        </select>
+      </label>
+      <label class="check"><input type="checkbox" id="lg-tag" checked> add a $FLOG tag</label>
+      <div class="mk-row">
+        <button class="btn btn-frog" id="lg-dl" type="button">download</button>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- MEMES -->
 <section class="memes" id="memes">
   <p class="eyebrow">// take them</p>
   <h2>memes</h2>
   <div class="grid memes-grid" id="memes-grid"></div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <p class="eyebrow">// questions</p>
+  <h2>knock knock</h2>
+  <div class="faq-list">
+    <details open><summary>what are creator fees?</summary><p>pump.fun pays a small cut of every $FLOG trade to the coin's creator. normally the dev keeps it. here it goes to the fee wallet, and the bot spends all of it on buybacks.</p></details>
+    <details><summary>where does the money go, exactly?</summary><p>fees get claimed into the fee wallet, then 100% of that SOL buys $FLOG on the open market. the $FLOG bought is locked straight away. the wallet only keeps a tiny reserve to pay transaction fees.</p></details>
+    <details><summary>can anyone unlock the pile?</summary><p>no. each lock is a Jupiter Lock contract with the unlock date set 100 years out and cancel turned off for everyone. you can open any lock on lock.jup.ag and see it yourself.</p></details>
+    <details><summary>why lock it forever instead of burning?</summary><p>so you can see it. a lock shows up as a real pile you can count, with every log on chain. burned tokens just disappear.</p></details>
+    <details><summary>what if the bot stops?</summary><p>the fees just wait in pump.fun until it runs again. nothing gets lost. the pill at the top of the page shows whether the bot is online and when it runs next.</p></details>
+    <details><summary>is there a roadmap?</summary><p>no. it's a log.</p></details>
+  </div>
 </section>
 
 <!-- HOW -->
@@ -226,7 +332,7 @@
 <footer>
   <img src="img/pfp-400.png" alt="">
   <p class="foot-big">FLOG</p>
-  <p>$FLOG is a meme coin with no intrinsic value or expectation of financial return. creator fees are used to buy back and lock $FLOG as written in the flog log. that's the whole plan. there's no roadmap. it's a log.</p>
+  <p>$FLOG is a meme coin with no intrinsic value or expectation of financial return. creator fees are used to buy back $FLOG and lock it in Jupiter Lock contracts, as recorded in the flog log. that's the whole plan. there's no roadmap. it's a log.</p>
   <p class="muted">flog.fun · made of 100% recycled creator fees</p>
 </footer>
 
@@ -239,6 +345,6 @@
   </div>
 </div>
 
-<script src="app.js?v=5"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
