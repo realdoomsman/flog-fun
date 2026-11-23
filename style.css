@@ -212,6 +212,15 @@ footer p { max-width: 700px; margin: 8px auto; }
 .keeper-pill[data-state="live"] .k-dot { background: var(--frog); box-shadow: 0 0 10px var(--frog); animation: blink 1.6s steps(1) infinite; }
 .keeper-pill[data-state="down"] .k-dot { background: var(--rec); box-shadow: 0 0 10px var(--rec); }
 
+/* next log progress */
+.nextlog { margin-top: 18px; background: var(--paper); color: var(--ink); border-radius: var(--r); padding: 18px 22px; }
+.nextlog[hidden] { display: none; }
+.nl-head { display: flex; justify-content: space-between; font-family: var(--mono); font-size: 24px; }
+.nl-bar { height: 22px; border-radius: 999px; background: #e2d4b2; margin: 10px 0; overflow: hidden; border: 2px solid var(--bark); }
+.nl-bar i { display: block; height: 100%; width: 0; transition: width .6s ease;
+  background: repeating-linear-gradient(90deg, #c98a4b 0 18px, #b57b41 18px 22px); }
+.nl-note { margin: 0; font-size: 16px; color: #6d604b; }
+
 /* legend */
 .legend { background: var(--night); }
 .chapters { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }

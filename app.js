@@ -188,6 +188,15 @@ function renderMachine(data) {
     $("#proof-wallet").href = CONFIG.account + data.fee_wallet;
   }
   if (CONFIG.keeper) $("#proof-bot").href = CONFIG.keeper.replace(/\/$/, "") + "/health";
+  if (data.min_buy_sol && data.flog_mint) {
+    const pend = +data.pending_sol || 0, goal = +data.min_buy_sol;
+    $("#nextlog").hidden = false;
+    $("#nl-val").textContent = `${fmt(pend, 3)} / ${fmt(goal, 0)} SOL`;
+    $("#nl-fill").style.width = `${Math.min(100, (pend / goal) * 100)}%`;
+    const cost = data.lock_cost_sol ? ` each lock costs about ${fmt(data.lock_cost_sol, 2)} SOL${data.lock_fee_pct ? ` + ${data.lock_fee_pct}% of the tokens` : ""} on Streamflow, so the bot batches.` : "";
+    const wait = data.max_wait_hours ? ` if it takes longer than ${data.max_wait_hours}h, it locks anyway once there's ${fmt(data.min_buy_sol_after_wait || 1, 1)} SOL.` : "";
+    $("#nl-note").textContent = `claimed fees stack up here until there's enough to buy and lock in one go.${cost}${wait}`;
+  }
   tickMachine();
 }
 function tickMachine() {

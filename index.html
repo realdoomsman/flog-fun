@@ -160,8 +160,14 @@
     <li><b>tax</b>0 / 0</li>
     <li><b>creator fees</b>100% → buyback</li>
     <li><b>buybacks</b>locked 100 years</li>
-    <li><b>cycle</b>every 5 min</li>
+    <li><b>claims</b>every 5 min</li>
+    <li><b>locks</b>every ~2 SOL of fees</li>
   </ul>
+  <div class="nextlog" id="nextlog" hidden>
+    <div class="nl-head"><span>next log on the pile</span><span id="nl-val">0 / 2 SOL</span></div>
+    <div class="nl-bar"><i id="nl-fill"></i></div>
+    <p class="nl-note" id="nl-note"></p>
+  </div>
 
   <div class="pile-wrap">
     <div class="pile-stage">
@@ -202,7 +208,7 @@
     <a class="proof-card" id="proof-bot" href="#" target="_blank" rel="noopener">
       <span class="pc-k">THE BOT</span>
       <span class="pc-v" id="proof-bot-v">waiting for launch</span>
-      <span class="pc-d">runs every 5 minutes: claim fees → buy $FLOG → lock it. its live status is the pill at the top of this page.</span>
+      <span class="pc-d">claims fees every 5 minutes, then buys $FLOG and locks it once about 2 SOL has stacked up. its live status is the pill at the top of this page.</span>
     </a>
     <a class="proof-card" id="proof-wallet" href="#" target="_blank" rel="noopener">
       <span class="pc-k">THE WALLET</span>
@@ -309,8 +315,9 @@
   <h2>knock knock</h2>
   <div class="faq-list">
     <details open><summary>what are creator fees?</summary><p>pump.fun pays a small cut of every $FLOG trade to the coin's creator. normally the dev keeps it. here it goes to the fee wallet, and the bot spends all of it on buybacks.</p></details>
-    <details><summary>where does the money go, exactly?</summary><p>fees get claimed into the fee wallet, then 100% of that SOL buys $FLOG on the open market. the $FLOG bought is locked straight away. the wallet only keeps a tiny reserve to pay transaction fees.</p></details>
+    <details><summary>where does the money go, exactly?</summary><p>fees get claimed into the fee wallet. once enough builds up, all of it buys $FLOG on the open market and the $FLOG is locked straight away. the only things taken out are network fees, Streamflow's fee for each lock, and a tiny reserve the wallet keeps to pay for transactions.</p></details>
     <details><summary>can anyone unlock the pile?</summary><p>no. each buyback gets its own Streamflow token lock with the unlock date set 100 years out, and cancel and transfer turned off for everyone. every row in the flog log links straight to its lock on Streamflow so you can check it yourself.</p></details>
+    <details><summary>why not lock every 5 minutes?</summary><p>every Streamflow lock costs a fixed fee in SOL plus a small cut of the tokens. locking tiny amounts would waste most of it on fees. so the bot claims every 5 minutes, lets the SOL stack up, then buys and locks in one go once there's about 2 SOL (or once a day if there's at least 1 SOL). the bar in "the flog machine" shows how close the next log is.</p></details>
     <details><summary>why lock it forever instead of burning?</summary><p>so you can see it. a lock shows up as a real pile you can count, with every log on chain. burned tokens just disappear.</p></details>
     <details><summary>what if the bot stops?</summary><p>the fees just wait in pump.fun until it runs again. nothing gets lost. the pill at the top of the page shows whether the bot is online and when it runs next.</p></details>
     <details><summary>is there a roadmap?</summary><p>no. it's a log.</p></details>
