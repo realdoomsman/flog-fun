@@ -97,7 +97,7 @@ section { position: relative; padding: 120px 6vw; }
 .lore-grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 6vw; align-items: center; }
 .lore-text p { font-size: 21px; max-width: 620px; }
 .pull { font-family: var(--mono); font-size: 40px !important; line-height: 1.05; color: var(--ring); margin-top: 30px; }
-.specimen { margin: 0; background: var(--paper); color: var(--ink); border-radius: 10px; padding: 16px; transform: rotate(1.5deg);
+.specimen { margin: 0; justify-self: end; width: 100%; max-width: 520px; background: var(--paper); color: var(--ink); border-radius: 10px; padding: 16px; transform: rotate(1.5deg);
   box-shadow: 0 30px 60px rgba(0,0,0,.5), inset 0 0 0 1px rgba(0,0,0,.08); cursor: pointer; transition: transform .2s; }
 .specimen:hover { transform: rotate(0deg) scale(1.01); }
 .specimen.knock { animation: knock .25s ease; }
