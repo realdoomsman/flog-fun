@@ -243,7 +243,7 @@ footer p { max-width: 700px; margin: 8px auto; }
 /* log-ify */
 .logify { background: var(--night); }
 .logify-ui { display: grid; grid-template-columns: minmax(0, 520px) minmax(0, 1fr); gap: 4vw; align-items: start; }
-#lg-canvas { width: 100%; height: auto; border-radius: 50%; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
+#lg-canvas { width: 100%; height: auto; border-radius: 18px; box-shadow: 0 30px 60px rgba(0,0,0,.5); }
 .drop { border: 2px dashed rgba(239,232,214,.35); border-radius: var(--r); padding: 40px 20px; text-align: center; cursor: pointer; color: var(--muted); }
 .drop.over, .drop:hover { border-color: var(--frog); color: var(--text); }
 .mk-controls label.check { flex-direction: row; align-items: center; gap: 10px; font-size: 22px; }
