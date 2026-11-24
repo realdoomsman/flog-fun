@@ -1,0 +1,9 @@
+flog was a normal frog. he bought a coin, sat on a log to watch the chart, and kept sitting. he turned into wood. half frog. half log.
+
+$FLOG runs a sawmill: a bot that claims the coin's pump.fun creator fees every 5 minutes into a public fee wallet. once about 2 SOL stacks up (or after 24 hours with at least 1 SOL), it buys $FLOG on the market and locks it in a non-cancelable Streamflow token lock for 70 years. each lock costs about 0.168 SOL (mostly account rent) plus 0.5% of the locked tokens. nobody can cancel, move or shorten a lock.
+
+every claim, buy and lock is written down in the flog log, with links to the transactions and the lock contracts. don't trust the frog. check the log.
+
+the dev locked 66,728,855 $FLOG (6.67% of supply) on Streamflow until 2093-11-23.
+
+logs don't sell.

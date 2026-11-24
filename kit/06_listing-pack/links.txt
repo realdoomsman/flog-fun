@@ -1,0 +1,11 @@
+FLOG ($FLOG) links
+
+website: https://flog.fun
+x / twitter: https://x.com/flogdotfun
+pump.fun: https://pump.fun/coin/CGJUUXmWgHaCp3ZVfX6rQJKQbNvLj7gXp3mBbUtJpump
+dexscreener: https://dexscreener.com/solana/CGJUUXmWgHaCp3ZVfX6rQJKQbNvLj7gXp3mBbUtJpump
+the flog log (every claim, buy, lock): https://keeper-production-f49f8214.up.railway.app/log
+sawmill health: https://keeper-production-f49f8214.up.railway.app/health
+fee wallet: https://solscan.io/account/Fd66bXTataTgkq2WjkndMooLgvQjm3uSu2NQAbv7tYyZ
+dev lock (streamflow, until 2093-11-23): https://app.streamflow.finance/contract/solana/mainnet/2yyYwkDbWamDuZi7bivuseMQskyZFxDBd6gSy2i1iD6Q
+token on solscan: https://solscan.io/token/CGJUUXmWgHaCp3ZVfX6rQJKQbNvLj7gXp3mBbUtJpump

@@ -1,0 +1,111 @@
+/* the vhs layer: camcorder osd + tape grain over the whole journey, and the boot intro.
+   built by js/vhs.js inside <div id="vhs-layer">. tune placement with --vhs-top / --vhs-side / --vhs-bottom. */
+
+#vhs-layer { position: fixed; inset: 0; z-index: 50; pointer-events: none; overflow: hidden; contain: strict;
+  --vhs-top: 20px; --vhs-side: 3.2vw; --vhs-bottom: 18px; }
+#vhs-layer > * { position: absolute; inset: 0; pointer-events: none; }
+
+/* grain: a tiny canvas stretched over the screen */
+.vhs-noise { width: 100%; height: 100%; opacity: .055; image-rendering: auto; }
+.vhs-calm .vhs-noise { opacity: .035; }
+.vhs-burst .vhs-noise { animation: vhs-burst .42s steps(6) both; }
+@keyframes vhs-burst { 0% { opacity: .42; } 40% { opacity: .3; transform: translateX(-.6%); } 70% { opacity: .16; transform: translateX(.4%); } 100% { opacity: .055; transform: none; } }
+
+/* rolling tracking band */
+.vhs-band { inset: auto 0 auto 0; top: 0; height: 14vh; opacity: .5;
+  background: linear-gradient(180deg, transparent, rgba(255, 255, 255, .035) 35%, rgba(255, 255, 255, .07) 50%, rgba(255, 255, 255, .03) 62%, transparent);
+  transform: translateY(-20vh); animation: vhs-roll 11s linear infinite; will-change: transform; }
+@keyframes vhs-roll { from { transform: translateY(-20vh); } to { transform: translateY(120vh); } }
+.vhs-calm .vhs-band { display: none; }
+.vhs-burst .vhs-band { opacity: 1; animation-duration: 1.1s; }
+
+/* scanlines + vignette */
+.vhs-scan { background:
+    radial-gradient(120% 100% at 50% 50%, transparent 55%, rgba(0, 0, 0, .5) 100%),
+    repeating-linear-gradient(180deg, rgba(0, 0, 0, .14) 0 1px, transparent 1px 3px); }
+
+/* on-screen display */
+.vhs-osd { font: clamp(20px, 2.3vw, 36px)/1 var(--mono, "VT323"), monospace; color: #f5f3ea; letter-spacing: .05em;
+  text-shadow: 2px 2px 0 #000, .1em 0 0 rgba(255, 40, 40, .18), -.1em 0 0 rgba(40, 170, 255, .18); }
+.vhs-osd > span { position: absolute; white-space: nowrap; }
+.vhs-rec { top: var(--vhs-top); left: var(--vhs-side); display: flex; align-items: center; gap: .3em; }
+.vhs-rec i { width: .55em; height: .55em; border-radius: 50%; background: var(--rec, #e8342b); box-shadow: 0 0 10px var(--rec, #e8342b);
+  animation: vhs-blink 1s steps(1) infinite; }
+@keyframes vhs-blink { 50% { opacity: 0; } }
+.vhs-calm .vhs-rec i { animation: none; }
+.vhs-sp { top: var(--vhs-top); right: var(--vhs-side); }
+.vhs-date { bottom: var(--vhs-bottom); left: var(--vhs-side); }
+.vhs-count { bottom: var(--vhs-bottom); right: var(--vhs-side); font-variant-numeric: tabular-nums; }
+.vhs-title { left: 50%; bottom: calc(var(--vhs-bottom) + 1.9em); transform: translateX(-50%); text-transform: uppercase;
+  padding: .1em .35em; opacity: 0; visibility: hidden; }
+.vhs-ch { font-weight: 400; color: #8dff6a; }
+.vhs-title.on { opacity: 1; visibility: visible; animation: vhs-title-in .35s steps(3) both; }
+@keyframes vhs-title-in { 0% { opacity: 0; transform: translate(-48%, 0); } 34% { opacity: 1; transform: translate(-52%, 0); } 67% { opacity: .5; transform: translate(-50%, 0); } 100% { opacity: 1; transform: translateX(-50%); } }
+.vhs-calm .vhs-title.on { animation: none; }
+.vhs-burst .vhs-osd { animation: vhs-osd-jit .42s steps(5) both; }
+@keyframes vhs-osd-jit { 0% { transform: translate(-6px, 0); } 25% { transform: translate(5px, 1px); } 50% { transform: translate(-3px, 0); } 75% { transform: translate(2px, 0); } 100% { transform: none; } }
+/* the osd waits for the intro to finish */
+.vhs-booting-now .vhs-osd { visibility: hidden; }
+
+@media (max-width: 700px) {
+  #vhs-layer { --vhs-top: 14px; --vhs-side: 14px; --vhs-bottom: 12px; }
+  .vhs-osd { font-size: 19px; }
+  .vhs-date .vhs-time { display: none; }
+  .vhs-title { bottom: calc(var(--vhs-bottom) + 1.6em); max-width: calc(100vw - 28px); overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* ---------- boot: black, a tape goes in, counter, play, static that dissolves into the forest ---------- */
+/* head veil (html.vhs-booting, set inline) so the page never flashes before the intro; lifts itself after 3s */
+html.vhs-booting body::before { content: ""; position: fixed; inset: 0; z-index: 9998; background: #000; pointer-events: none;
+  animation: vhs-veil 0s 3s forwards; }
+@keyframes vhs-veil { to { visibility: hidden; opacity: 0; } }
+
+.vhs-boot { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; overflow: hidden; cursor: pointer;
+  background: #000; color: #efe8d6; }
+.vhs-boot.boot-tv { background: transparent; }
+.vhs-boot.boot-out { animation: boot-fade .2s forwards; pointer-events: none; }
+.vhs-boot.boot-end { pointer-events: none; opacity: 0; }
+@keyframes boot-fade { to { opacity: 0; visibility: hidden; } }
+
+.boot-stage { position: relative; z-index: 1; width: min(520px, 84vw); margin-top: min(150px, 26vw); display: grid; justify-items: center; }
+.boot-tv .boot-stage { visibility: hidden; }
+/* the tape lives in a clipped "mouth" whose bottom edge is the slot, so it vanishes into the deck */
+.boot-mouth { position: absolute; left: 5%; right: 5%; bottom: 100%; aspect-ratio: 188 / 150; overflow: hidden; display: flex; align-items: flex-end; }
+.boot-tape { position: relative; width: 100%; aspect-ratio: 188 / 104; border-radius: 3% / 5%;
+  background: linear-gradient(180deg, #1d1b19, #0e0d0c); box-shadow: inset 0 2px 0 rgba(255, 255, 255, .1);
+  display: grid; grid-template-rows: 1fr auto; padding: 6% 7% 5%; gap: 6%;
+  animation: boot-tape .75s .25s cubic-bezier(.5, 0, .3, 1) both; }
+.boot-win { display: flex; justify-content: space-around; align-items: center; border-radius: 8px; background: #2a2622; box-shadow: inset 0 2px 6px rgba(0, 0, 0, .8); }
+.boot-win i { width: 22%; aspect-ratio: 1; border-radius: 50%; background: repeating-conic-gradient(#e9e2d0 0 20deg, #3a332c 20deg 60deg);
+  -webkit-mask: radial-gradient(circle, transparent 28%, #000 30%); mask: radial-gradient(circle, transparent 28%, #000 30%);
+  animation: boot-reel .6s linear infinite; }
+.boot-label { display: block; padding: 3% 4%; background: #efe3c6; color: #2a1d12; border-radius: 3px; text-align: center;
+  font: clamp(16px, 3.6vw, 24px)/1 var(--hand, "Caveat"), cursive; }
+@keyframes boot-tape { 0% { transform: translateY(-40%); opacity: 0; } 20% { opacity: 1; } 100% { transform: translateY(104%); } }
+@keyframes boot-reel { to { transform: rotate(360deg); } }
+.boot-deck { position: relative; z-index: 2; width: 100%; display: grid; grid-template-columns: 1.3fr 1fr; align-items: center; gap: 4%; padding: 6% 6% 8%;
+  border-radius: 10px; background: repeating-linear-gradient(90deg, rgba(255, 255, 255, .025) 0 1px, transparent 1px 3px), linear-gradient(180deg, #3a3734, #191817 12%, #0d0c0b);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, .16), 0 14px 40px rgba(0, 0, 0, .8); }
+.boot-slot { position: relative; height: clamp(26px, 6vw, 38px); border-radius: 4px; background: #040404; box-shadow: inset 0 4px 8px #000; }
+.boot-vfd { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; height: clamp(50px, 12vw, 68px); border-radius: 4px; background: #040a09;
+  font-family: var(--mono, "VT323"), monospace; color: #7dffd2; text-shadow: 0 0 8px rgba(125, 255, 210, .8); line-height: 1; }
+.boot-count { font-size: clamp(22px, 5vw, 32px); font-weight: 400; letter-spacing: .08em; }
+.boot-play { font-size: clamp(14px, 3vw, 18px); font-weight: 400; opacity: 0; animation: boot-play .5s 1.35s steps(2) both; }
+@keyframes boot-play { 0% { opacity: 0; } 50% { opacity: 1; } 75% { opacity: .2; } 100% { opacity: 1; } }
+.boot-silk { position: absolute; left: 6%; bottom: 10%; font: 12px/1 var(--mono, "VT323"), monospace; letter-spacing: .2em; color: #7d776c; }
+/* the tube switching on: a line that opens into static */
+.boot-flash { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: #f4fff6; opacity: 0; transform: scale(0, .004); }
+.boot-tv .boot-flash { animation: boot-flash .26s cubic-bezier(.6, 0, .2, 1) both; }
+@keyframes boot-flash { 0% { opacity: 1; transform: scale(.05, .004); } 45% { opacity: 1; transform: scale(1, .004); } 100% { opacity: 0; transform: scale(1, 1); } }
+.boot-static { position: absolute; inset: 0; z-index: 2; width: 100%; height: 100%; visibility: hidden; }
+.boot-tv .boot-static { visibility: visible; }
+.boot-skip { position: absolute; right: 22px; bottom: 22px; z-index: 4; min-width: 44px; min-height: 44px; padding: 0 16px; border: 1px solid rgba(239, 232, 214, .35);
+  border-radius: 4px; background: rgba(0, 0, 0, .55); color: #efe8d6; font: 22px/1 var(--mono, "VT323"), monospace; letter-spacing: .1em; cursor: pointer; }
+.boot-skip:hover, .boot-skip:focus-visible { background: rgba(239, 232, 214, .14); outline: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .vhs-band { display: none; }
+  .vhs-rec i, .vhs-title.on, .vhs-burst .vhs-osd, .vhs-burst .vhs-noise { animation: none; }
+  .vhs-boot, html.vhs-booting body::before { display: none; }
+}
+html.static .vhs-boot, html.static.vhs-booting body::before { display: none; }

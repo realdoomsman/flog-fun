@@ -1,0 +1,97 @@
+[
+ {
+  "name": "night",
+  "hex": "#05070a",
+  "use": "page background, the dark"
+ },
+ {
+  "name": "bark",
+  "hex": "#3b2415",
+  "use": "bark, outlines, dark wood"
+ },
+ {
+  "name": "ink",
+  "hex": "#1d150d",
+  "use": "text on paper"
+ },
+ {
+  "name": "shadow",
+  "hex": "#3a2210",
+  "use": "wordmark hard shadow"
+ },
+ {
+  "name": "wood",
+  "hex": "#c98a4b",
+  "use": "wood, warm accents"
+ },
+ {
+  "name": "ring",
+  "hex": "#ecc994",
+  "use": "tree ring, kicker text, highlights"
+ },
+ {
+  "name": "ring light",
+  "hex": "#f3d7a6",
+  "use": "wordmark ring band 1"
+ },
+ {
+  "name": "groove",
+  "hex": "#d9a464",
+  "use": "wordmark ring band 2"
+ },
+ {
+  "name": "ring pale",
+  "hex": "#f0cf98",
+  "use": "wordmark ring band 3"
+ },
+ {
+  "name": "ring dark",
+  "hex": "#b57b41",
+  "use": "wordmark ring band 4"
+ },
+ {
+  "name": "frog",
+  "hex": "#63d63a",
+  "use": "flog green, links, emphasis"
+ },
+ {
+  "name": "frog dark",
+  "hex": "#3e9e1e",
+  "use": "green shadow, newest ring"
+ },
+ {
+  "name": "paper",
+  "hex": "#f2e9d4",
+  "use": "paper, notes, light cards"
+ },
+ {
+  "name": "text",
+  "hex": "#efe8d6",
+  "use": "body text on night"
+ },
+ {
+  "name": "muted",
+  "hex": "#a9a58f",
+  "use": "secondary text"
+ },
+ {
+  "name": "stamp",
+  "hex": "#ff7a14",
+  "use": "digicam date stamp orange"
+ },
+ {
+  "name": "rec",
+  "hex": "#e8342b",
+  "use": "camcorder REC dot"
+ },
+ {
+  "name": "vcr",
+  "hex": "#1b2a9c",
+  "use": "VCR blue screen"
+ },
+ {
+  "name": "moon",
+  "hex": "#b9d2ff",
+  "use": "moonlight, cold accents"
+ }
+]

@@ -114,50 +114,15 @@ const ambient = (() => {
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  // sound toggle
+  // ambient sound toggle (off until the visitor asks)
   const snd = $("#snd");
-  snd.addEventListener("click", () => {
+  snd?.addEventListener("click", () => {
     const on = ambient.toggle();
     snd.setAttribute("aria-pressed", on);
     snd.classList.toggle("on", on);
     $("#snd-t").textContent = on ? "sound on" : "sound off";
   });
-
-  // mobile nav
-  const burger = $("#burger"), nav = $("#nav");
-  const setNav = (open) => { document.body.classList.toggle("nav-open", open); burger.setAttribute("aria-expanded", open); };
-  burger.addEventListener("click", () => setNav(!document.body.classList.contains("nav-open")));
-  nav.addEventListener("click", (e) => { if (e.target.closest("a")) setNav(false); });
-
-  // nav highlight for the section on screen
-  const navLinks = new Map($$("#nav a").map((a) => [a.getAttribute("href").slice(1), a]));
-  const navIO = new IntersectionObserver((es) => es.forEach((e) => {
-    if (!e.isIntersecting) return;
-    navLinks.forEach((a) => a.classList.remove("on"));
-    navLinks.get(e.target.id)?.classList.add("on");
-  }), { rootMargin: "-45% 0px -50% 0px" });
-  navLinks.forEach((_, id) => { const s = document.getElementById(id); if (s) navIO.observe(s); });
-
-  // header goes solid after the hero
-  const top = $(".top");
-  const onScroll = () => top.classList.toggle("scrolled", scrollY > 40);
-  addEventListener("scroll", onScroll, { passive: true });
-  onScroll();
-
-  // tagline rotator in the hero
-  const TAGS = ["logs don't sell.", "fees in. logs up.", "wooden hands > diamond hands.", "don't trust the frog. check the log.", "you can't sell if you're wood.", "the pile doesn't sell.", "knock on wood."];
-  const rot = $("#rot");
-  if (rot && !REDUCED) {
-    let i = 0;
-    const type = async (txt) => {
-      for (let n = rot.textContent.length; n >= 0; n--) { rot.textContent = rot.textContent.slice(0, n); await new Promise((r) => setTimeout(r, 22)); }
-      for (let n = 1; n <= txt.length; n++) { rot.textContent = txt.slice(0, n); await new Promise((r) => setTimeout(r, 45)); }
-    };
-    setInterval(() => { i = (i + 1) % TAGS.length; type(TAGS[i]); }, 3800);
-  }
-
   initReveal(document);
-  initParallax();
 });
 
 // ---- scroll reveal (also used for content rendered later) ----
@@ -178,19 +143,6 @@ function initReveal(root) {
   });
 }
 
-// ---- subtle parallax for [data-parallax] (hero video) ----
-function initParallax() {
-  const els = $$("[data-parallax]");
-  if (REDUCED || !els.length) return;
-  let queued = false;
-  const run = () => {
-    queued = false;
-    const y = scrollY;
-    els.forEach((el) => { if (y < innerHeight * 1.2) el.style.transform = `translate3d(0, ${y * +el.dataset.parallax}px, 0) scale(1.04)`; });
-  };
-  addEventListener("scroll", () => { if (!queued) { queued = true; requestAnimationFrame(run); } }, { passive: true });
-  run();
-}
 
 // ---- small shared helpers ----
 const fmt = (n, d = 0) => Number(n).toLocaleString("en-US", { maximumFractionDigits: d, minimumFractionDigits: d });
@@ -228,4 +180,30 @@ function drawStamp(ctx, W, H, text) {
   ctx.fillStyle = "#ff7a14";
   ctx.fillText(text, W - size * 0.72, H - size * 0.72);
   ctx.restore();
+}
+
+// ---- lazy-init + pause helpers for heavy widgets ----
+const IS_SMALL = matchMedia("(max-width: 700px), (pointer: coarse)").matches;
+// run cb once, the first time el comes near the viewport
+function whenVisible(el, cb, margin = "300px") {
+  if (!el) return;
+  if (!("IntersectionObserver" in window)) return cb();
+  const io = new IntersectionObserver((es) => {
+    if (es.some((e) => e.isIntersecting)) { io.disconnect(); cb(); }
+  }, { rootMargin: margin });
+  io.observe(el);
+}
+// call onEnter / onLeave whenever el enters / leaves the viewport (use to pause animation loops)
+function onScreen(el, onEnter, onLeave) {
+  if (!el) return;
+  new IntersectionObserver((es) => es.forEach((e) => (e.isIntersecting ? onEnter() : onLeave()))).observe(el);
+}
+// load a script once (CDN libs), resolves when ready
+const _scripts = {};
+function loadScript(src) {
+  return (_scripts[src] = _scripts[src] || new Promise((res, rej) => {
+    const s = document.createElement("script");
+    s.src = src; s.async = true; s.onload = res; s.onerror = rej;
+    document.head.appendChild(s);
+  }));
 }

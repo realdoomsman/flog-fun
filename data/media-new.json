@@ -1,0 +1,298 @@
+{
+ "sightings": [
+  {
+   "id": "31_diamond",
+   "file": "img/sightings/31_diamond.jpg",
+   "clean": "img/clean/31_diamond.jpg",
+   "place": "natural history museum, mammals hall",
+   "time": "2:41pm",
+   "note": "found next to the diamond exhibit. the diamond was for sale. he was not."
+  },
+  {
+   "id": "32_museum",
+   "file": "img/sightings/32_museum.jpg",
+   "clean": "img/clean/32_museum.jpg",
+   "place": "ethnography museum, room 4",
+   "time": "11:06am",
+   "note": "plaque reads: petrified holder, est. 2026. nobody remembers bringing him in."
+  },
+  {
+   "id": "33_therapy",
+   "file": "img/sightings/33_therapy.jpg",
+   "clean": "img/clean/33_therapy.jpg",
+   "place": "a therapist's office",
+   "time": "4:30pm",
+   "note": "session 1. he sat down and never got up. the therapist billed 70 years."
+  },
+  {
+   "id": "34_float",
+   "file": "img/sightings/34_float.jpg",
+   "clean": "img/clean/34_float.jpg",
+   "place": "someone's backyard pool",
+   "time": "1:22pm",
+   "note": "logs float. he didn't know. now he does."
+  },
+  {
+   "id": "35_sawmill",
+   "file": "img/sightings/35_sawmill.jpg",
+   "clean": "img/clean/35_sawmill.jpg",
+   "place": "the sawmill, night shift",
+   "time": "3:12am",
+   "note": "the lights were on. the saw was running. he was just standing there."
+  },
+  {
+   "id": "36_bonfire",
+   "file": "img/sightings/36_bonfire.jpg",
+   "clean": "img/clean/36_bonfire.jpg",
+   "place": "a living room with a fireplace",
+   "time": "9:47pm",
+   "note": "he stood as far from the fire as the room allowed. he didn't say anything."
+  },
+  {
+   "id": "37_rings",
+   "file": "img/sightings/37_rings.jpg",
+   "clean": "img/clean/37_rings.jpg",
+   "place": "a cabin, very close up",
+   "time": "10:03am",
+   "note": "the belly is a ring. every lock adds one. you don't have to cut him down to count. they're on chain."
+  },
+  {
+   "id": "38_not_a_bag",
+   "file": "img/sightings/38_not_a_bag.jpg",
+   "clean": "img/clean/38_not_a_bag.jpg",
+   "place": "a workshop yard",
+   "time": "3:58pm",
+   "note": "carrying today's log to the pile. it doesn't go down. it goes on the pile."
+  },
+  {
+   "id": "39_doctor",
+   "file": "img/sightings/39_doctor.jpg",
+   "clean": "img/clean/39_doctor.jpg",
+   "place": "exam room 2",
+   "time": "9:15am",
+   "note": "mid-lignification. the bark had reached his chest. the leaf hadn't come in yet."
+  },
+  {
+   "id": "40_wife",
+   "file": "img/sightings/40_wife.jpg",
+   "clean": "img/clean/40_wife.jpg",
+   "place": "a wooden lounge",
+   "time": "10:10pm",
+   "note": "the bark is halfway up. he says it's fine. it is fine."
+  },
+  {
+   "id": "41_pile",
+   "file": "img/sightings/41_pile.jpg",
+   "clean": "img/clean/41_pile.jpg",
+   "place": "the forest, near the pile",
+   "time": "5:34pm",
+   "note": "fifteen logs. nobody took any. nobody can, for 70 years."
+  },
+  {
+   "id": "42_reading",
+   "file": "img/sightings/42_reading.jpg",
+   "clean": "img/clean/42_reading.jpg",
+   "place": "a reading room",
+   "time": "8:47am",
+   "note": "reading the flog log again. it still says locked."
+  },
+  {
+   "id": "43_king_log",
+   "file": "img/sightings/43_king_log.jpg",
+   "clean": "img/clean/43_king_log.jpg",
+   "place": "a misty forest, the old court",
+   "time": "7:20am",
+   "note": "aesop wrote this one down a long time ago. the log is still sitting there."
+  },
+  {
+   "id": "44_wood_frog",
+   "file": "img/sightings/44_wood_frog.jpg",
+   "clean": "img/clean/44_wood_frog.jpg",
+   "place": "a snowy forest",
+   "time": "12:00pm",
+   "note": "the cousin was frozen solid. flog waited with him. he's good at waiting."
+  },
+  {
+   "id": "45_chip_log",
+   "file": "img/sightings/45_chip_log.jpg",
+   "clean": "img/clean/45_chip_log.jpg",
+   "place": "a harbour, off the stern",
+   "time": "6:55pm",
+   "note": "sailors threw a log on a knotted rope and wrote down the knots. he volunteered."
+  },
+  {
+   "id": "46_speckled",
+   "file": "img/sightings/46_speckled.jpg",
+   "clean": "img/clean/46_speckled.jpg",
+   "place": "the pool",
+   "time": "3:05pm",
+   "note": "four jumped. one stayed. you know which one."
+  },
+  {
+   "id": "47_twain",
+   "file": "img/sightings/47_twain.jpg",
+   "clean": "img/clean/47_twain.jpg",
+   "place": "a field, early",
+   "time": "6:44am",
+   "note": "day 30. still sitting. still a bump on a log."
+  }
+ ],
+ "memes": [
+  {
+   "id": "31_diamond",
+   "file": "img/memes/31_diamond.jpg",
+   "caption": "diamonds can be sold / wood can't"
+  },
+  {
+   "id": "32_museum",
+   "file": "img/memes/32_museum.jpg",
+   "caption": "stage 5: petrified. they put him in a museum. he didn't notice"
+  },
+  {
+   "id": "33_therapy",
+   "file": "img/memes/33_therapy.jpg",
+   "caption": "flog at therapy: / 'i can't feel my hands' / 'they're wood' / 'oh'"
+  },
+  {
+   "id": "34_float",
+   "file": "img/memes/34_float.jpg",
+   "caption": "flog tried to swim. he just floated."
+  },
+  {
+   "id": "35_sawmill",
+   "file": "img/memes/35_sawmill.jpg",
+   "caption": "flog at the sawmill. 3am. cutting logs. no hands."
+  },
+  {
+   "id": "36_bonfire",
+   "file": "img/memes/36_bonfire.jpg",
+   "caption": "flog when someone says bonfire"
+  },
+  {
+   "id": "37_rings",
+   "file": "img/memes/37_rings.jpg",
+   "caption": "count the rings / every lock adds one"
+  },
+  {
+   "id": "38_not_a_bag",
+   "file": "img/memes/38_not_a_bag.jpg",
+   "caption": "it's not a bag / it's a log"
+  },
+  {
+   "id": "39_doctor",
+   "file": "img/memes/39_doctor.jpg",
+   "caption": "doctor: it's stage 4 lignification / me: is that bullish"
+  },
+  {
+   "id": "40_wife",
+   "file": "img/memes/40_wife.jpg",
+   "caption": "me explaining to my wife why i'm turning into a log"
+  },
+  {
+   "id": "41_pile",
+   "file": "img/memes/41_pile.jpg",
+   "caption": "every ~2 SOL another log hits the pile. the pile doesn't sell."
+  },
+  {
+   "id": "42_reading",
+   "file": "img/memes/42_reading.jpg",
+   "caption": "don't trust the frog. check the log."
+  },
+  {
+   "id": "43_king_log",
+   "file": "img/memes/43_king_log.jpg",
+   "caption": "the frogs asked for a king. they got a log. it never did anything. best king they ever had."
+  },
+  {
+   "id": "44_wood_frog",
+   "file": "img/memes/44_wood_frog.jpg",
+   "caption": "there's a real frog that stops its heart all winter and wakes up fine. flog's cousin. he's seen worse charts."
+  },
+  {
+   "id": "45_chip_log",
+   "file": "img/memes/45_chip_log.jpg",
+   "caption": "the first log book was an actual log. we do the same thing. it's called the flog log."
+  },
+  {
+   "id": "46_speckled",
+   "file": "img/memes/46_speckled.jpg",
+   "caption": "five little speckled frogs sat on a speckled log. four jumped in the pool. one stayed. he's the log now."
+  },
+  {
+   "id": "47_twain",
+   "file": "img/memes/47_twain.jpg",
+   "caption": "\"sitting there for thirty days like a bump on a log.\" / - mark twain, 1863, describing a holder"
+  }
+ ],
+ "cutouts": [
+  {
+   "id": "01_standing",
+   "file": "img/cutouts/01_standing.png",
+   "label": "standing"
+  },
+  {
+   "id": "02_waving",
+   "file": "img/cutouts/02_waving.png",
+   "label": "waving"
+  },
+  {
+   "id": "03_carry",
+   "file": "img/cutouts/03_carry.png",
+   "label": "carrying a log"
+  },
+  {
+   "id": "04_sitting",
+   "file": "img/cutouts/04_sitting.png",
+   "label": "sitting on a log"
+  },
+  {
+   "id": "05_phone",
+   "file": "img/cutouts/05_phone.png",
+   "label": "holding phone (can't tap)"
+  },
+  {
+   "id": "06_back",
+   "file": "img/cutouts/06_back.png",
+   "label": "back view"
+  },
+  {
+   "id": "07_floating",
+   "file": "img/cutouts/07_floating.png",
+   "label": "floating (lying flat)"
+  },
+  {
+   "id": "08_walking",
+   "file": "img/cutouts/08_walking.png",
+   "label": "walking, side view"
+  }
+ ],
+ "videos": [
+  {
+   "id": "lignify",
+   "file": "video/lignify.mp4",
+   "poster": "video/lignify.jpg",
+   "title": "the lignification",
+   "caption": "he bought a coin and sat on a log. it dipped. it pumped. it did nothing. he kept sitting. stage 4: log.",
+   "aspect": "16:9",
+   "square": {
+    "file": "video/lignify-sq.mp4",
+    "poster": "video/lignify-sq.jpg",
+    "aspect": "1:1"
+   }
+  },
+  {
+   "id": "infomercial",
+   "file": "video/infomercial.mp4",
+   "poster": "video/infomercial.jpg",
+   "title": "the flog machine",
+   "caption": "fees in. logs up. every log locked 70 years on streamflow. operators are not standing by. the sawmill is.",
+   "aspect": "16:9",
+   "square": {
+    "file": "video/infomercial-sq.mp4",
+    "poster": "video/infomercial-sq.jpg",
+    "aspect": "1:1"
+   }
+  }
+ ],
+ "model": "3d/flog.glb"
+}

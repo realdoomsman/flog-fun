@@ -1,0 +1,19 @@
+name: Flog
+ticker: FLOG
+chain: solana
+contract address: CGJUUXmWgHaCp3ZVfX6rQJKQbNvLj7gXp3mBbUtJpump
+launched on: pump.fun
+total supply: 1,000,000,000
+dev lock: 66,728,855 FLOG (6.67%) on Streamflow until 2093-11-23
+buyback: creator fees get claimed every 5 min; ~2 SOL (or 1 SOL after 24h) buys FLOG, locked 70 years on Streamflow (non-cancelable)
+fee wallet: Fd66bXTataTgkq2WjkndMooLgvQjm3uSu2NQAbv7tYyZ
+website: https://flog.fun
+x: https://x.com/flogdotfun
+
+short description (138 chars):
+flog held so long he turned into wood. every creator fee buys $FLOG and locks it on Streamflow for 70 years. every log is in the flog log.
+
+files:
+  icon: icon_500x500.png (also 1000 / 200, and a retro variant)
+  header 3:1: header_1500x500_night.png / _paper.png / _forest.jpg
+  banner 3:1 small: banner_600x200_night.png / _paper.png / _forest.png

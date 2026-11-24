@@ -1,0 +1,48 @@
+FLOG palette (same values as flog.fun)
+
+#05070a  night        page background, the dark
+#3b2415  bark         bark, outlines, dark wood
+#1d150d  ink          text on paper
+#3a2210  shadow       wordmark hard shadow
+#c98a4b  wood         wood, warm accents
+#ecc994  ring         tree ring, kicker text, highlights
+#f3d7a6  ring light   wordmark ring band 1
+#d9a464  groove       wordmark ring band 2
+#f0cf98  ring pale    wordmark ring band 3
+#b57b41  ring dark    wordmark ring band 4
+#63d63a  frog         flog green, links, emphasis
+#3e9e1e  frog dark    green shadow, newest ring
+#f2e9d4  paper        paper, notes, light cards
+#efe8d6  text         body text on night
+#a9a58f  muted        secondary text
+#ff7a14  stamp        digicam date stamp orange
+#e8342b  rec          camcorder REC dot
+#1b2a9c  vcr          VCR blue screen
+#b9d2ff  moon         moonlight, cold accents
+
+wordmark ring gradient (repeats every 24px at 300px type, centered 50% / 115%):
+  #f3d7a6 0-10px, #d9a464 10-13px, #f0cf98 13-22px, #b57b41 22-24px
+  hard shadow: 0 6px 0 #3a2210 (at 300px type)
+
+CSS:
+:root {
+  --night: #05070a;
+  --bark: #3b2415;
+  --ink: #1d150d;
+  --shadow: #3a2210;
+  --wood: #c98a4b;
+  --ring: #ecc994;
+  --ring-light: #f3d7a6;
+  --groove: #d9a464;
+  --ring-pale: #f0cf98;
+  --ring-dark: #b57b41;
+  --frog: #63d63a;
+  --frog-dark: #3e9e1e;
+  --paper: #f2e9d4;
+  --text: #efe8d6;
+  --muted: #a9a58f;
+  --stamp: #ff7a14;
+  --rec: #e8342b;
+  --vcr: #1b2a9c;
+  --moon: #b9d2ff;
+}

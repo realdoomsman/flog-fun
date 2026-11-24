@@ -1,4 +1,19 @@
 {
-  "supply": 1000000000,
-  "entries": []
+  "supply": 999999510.770921,
+  "entries": [
+    {
+      "date": "2026-11-24",
+      "time": "2026-11-24T00:25:57.000Z",
+      "fees_sol": 2.132009752,
+      "bought": 12694859.009822,
+      "locked": 12631700.507285,
+      "lock_fee_sol": 0.167747,
+      "locked_until": "2096-11-06",
+      "claim_tx": "uZoM3droGfBLwWg5wtZaBjufbxLmyBPahwXc41G669AzzFCp2u1CfqDRNASChJz5KJ48eGcwHHyHqzx7wCttauT",
+      "buy_tx": "2mTcKA1vDze2F18MaA8HQYqdAmubWBW3d9CMdiaQchL91gVVLXNLwBW4sZz3yeSbjVuDCmdCfr9DRU4p3ERsZhcV",
+      "lock_tx": "2M846kx6qFFabN1drpL1QaGA1RQcEMjSygehawTnTRYqntVduWspAnj1t2aGi6vRj4vcKGoMdQ9Y7DbWsdGAdPQg",
+      "escrow": "EC7Sas8jCQAWnCB7M7q1WpwMPTH8SPDNPrqFdNSdstyK",
+      "lock_url": "https://app.streamflow.finance/contract/solana/mainnet/EC7Sas8jCQAWnCB7M7q1WpwMPTH8SPDNPrqFdNSdstyK"
+    }
+  ]
 }
