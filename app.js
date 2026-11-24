@@ -8,8 +8,8 @@ const CONFIG = {
     chart: "",     // default: https://dexscreener.com/solana/<ca>
     x: "https://x.com/flogdotfun",
     tg: "https://t.me/FlogFun",
-    stickers: "https://t.me/addstickers/flog_by_DoomsPC1791_bot",
-    stickersTapes: "https://t.me/addstickers/flog_tapes_by_DoomsPC1791_bot",
+    stickers: "https://t.me/addstickers/flogfun",
+    stickersTapes: "https://t.me/addstickers/flogtapes",
     devlock: "https://app.streamflow.finance/contract/solana/mainnet/2yyYwkDbWamDuZi7bivuseMQskyZFxDBd6gSy2i1iD6Q",
   },
   devLocked: 66728855.72,   // the dev's own Streamflow lock (until 2093-11-23), counted into "total locked"
