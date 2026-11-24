@@ -19,11 +19,11 @@
   (function () {
     var h = document.documentElement, ok = false;
     try {
-      var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // reduced motion only calms the vhs effects (vhs.js / overlays.js); it still gets the 3d journey
       var chose = localStorage.getItem("flog-static") === "1";
       var c = document.createElement("canvas");
       var gl = c.getContext("webgl2") || c.getContext("webgl");
-      ok = !!gl && !reduced && !chose;
+      ok = !!gl && !chose;
     } catch (e) {}
     h.className = ok ? "webgl" : "static";
     try { if (ok && !sessionStorage.getItem("flog-booted")) h.classList.add("vhs-booting"); } catch (e) {}
@@ -42,7 +42,7 @@
 <link rel="stylesheet" href="css/vhs.css?v=12">
 <link rel="stylesheet" href="css/overlays.css?v=12">
 <script defer src="js/fx.js?v=12"></script>
-<script defer src="js/world.js?v=12"></script>
+<script defer src="js/world.js?v=13"></script>
 <script defer src="js/rings.js?v=12"></script>
 <script defer src="js/vhs.js?v=12"></script>
 <script defer src="js/world3d.js?v=12"></script>

@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const modeBtn = $("#hud-mode");
   const webglOK = (() => { try { const c = document.createElement("canvas"); return !!(c.getContext("webgl2") || c.getContext("webgl")); } catch { return false; } })();
   const setModeLabel = () => { modeBtn.textContent = isStatic() ? "lights off (3d journey)" : "lights on (plain page)"; };
-  if (!webglOK || REDUCED) modeBtn.hidden = isStatic();
+  if (!webglOK) modeBtn.hidden = isStatic();
   setModeLabel();
   modeBtn.addEventListener("click", () => {
     try { localStorage.setItem("flog-static", isStatic() ? "0" : "1"); } catch {}
