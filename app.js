@@ -2,7 +2,7 @@
 // edit when live. buy/chart links fill in from the CA automatically.
 // ---------------------------------------------------------------
 const CONFIG = {
-  ca: "",
+  ca: "CGJUUXmWgHaCp3ZVfX6rQJKQbNvLj7gXp3mBbUtJpump",
   links: {
     buy: "",       // default: https://pump.fun/coin/<ca>
     chart: "",     // default: https://dexscreener.com/solana/<ca>
